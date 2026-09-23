@@ -1,0 +1,27 @@
+---
+title: "FeedbackFlow"
+subtitle: "An open-source feedback board, built to turn CI/CD, migrations, and PR-based development from resume keywords into things I've actually done."
+track: "build"
+org: "Open source"
+role: "Builder"
+period: "2026"
+status: "in-progress"
+order: 0
+stack: ["Next.js", "Supabase", "PostgreSQL", "Playwright", "GitHub Actions"]
+metrics: []
+links: []
+---
+
+## Why I'm building this
+
+Most of my hands-on technical work has happened inside private codebases — real, but not something I can point a hiring manager to. FeedbackFlow is a small, genuinely public SaaS-style app (users submit feedback, vote, and admins triage it) built to close a few concrete gaps: database migrations, seed data, feature branches, pull requests, preview environments, and a Playwright suite wired into GitHub Actions as a real CI gate, not just a line on a resume.
+
+## What it demonstrates
+
+- The full workflow: local development → feature branch → Postgres migration → pull request → preview environment → Playwright E2E tests → GitHub Actions → review → merge → production.
+- A deliberately broken CI run, diagnosed and fixed, so the failure-and-recovery loop is real rather than simulated.
+- Product decisions made along the way — meant to read as product judgment applied to a small codebase, not a coding-skills showcase.
+
+## Where it stands
+
+This project is in progress. The full write-up — architecture diagram, PR/CI screenshots, and test results — will replace this page once it's built.

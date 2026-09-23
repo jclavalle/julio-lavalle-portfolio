@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-paper font-serif antialiased;
+}
+
+::selection {
+  background-color: #5fa88c;
+  color: #10141c;
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+/* Visible keyboard focus everywhere — not just the browser default outline
+   color, but something that reads against the dark background. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #5fa88c;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Styling for the rendered MDX body of a case study. Kept intentionally
+   small and hand-written rather than pulling in @tailwindcss/typography
+   for a handful of rules. */
+.prose-custom h2 {
+  @apply font-serif text-2xl mt-10 mb-4 text-paper;
+}
+
+.prose-custom p {
+  @apply leading-relaxed mb-4 text-paper/90;
+}
+
+.prose-custom ul {
+  @apply list-disc pl-5 mb-4 space-y-1 text-paper/90;
+}
+
+.prose-custom strong {
+  @apply text-paper;
+}
+
+.prose-custom a {
+  @apply text-accent;
+}

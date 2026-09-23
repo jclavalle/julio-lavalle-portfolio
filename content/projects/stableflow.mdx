@@ -1,0 +1,29 @@
+---
+title: "StableFlow"
+subtitle: "A cross-border stablecoin payment prototype for LATAM freelancers — hands-on with USDC, wallets, testnet transactions, and on/off-ramps."
+track: "build"
+org: "Independent project"
+role: "Builder"
+period: "2026"
+status: "in-progress"
+order: 1
+stack: ["USDC", "Stellar Testnet", "Next.js", "TypeScript", "Circle Developer Tools"]
+metrics: []
+links: []
+---
+
+## Why I'm building this
+
+Most of my blockchain exposure has come from the product side — Open Finance rails, KYC, and a marketplace that included crypto products at MiBolsillo. StableFlow is one level deeper: actually moving value across a fiat-on-ramp → USDC → blockchain → fiat-off-ramp path myself, rather than only having managed products that touched it.
+
+The scenario: a Brazilian freelancer receives US$1,000 from a US client in USDC, holds it as digital dollars, and later converts part of it to BRL.
+
+## What it demonstrates
+
+- The full transaction lifecycle: on-ramp, wallet custody, a real testnet blockchain transaction, off-ramp, and FX.
+- The failure states that actually matter in this flow — insufficient balance, wrong network, KYC gating, off-ramp unavailability, depeg risk — and why each needs to be caught before authorization, not after.
+- An honest comparison between stablecoin and traditional cross-border rails, including where stablecoins don't automatically win: fees, liquidity, and off-ramp availability still depend on the specific corridor.
+
+## Where it stands
+
+This project is in progress. The full write-up — architecture diagram, testnet transaction hash, failure-state documentation, and rail comparison — will replace this page once it's built.

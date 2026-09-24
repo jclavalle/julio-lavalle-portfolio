@@ -9,22 +9,34 @@ import SectionNav from "@/components/home/SectionNav";
 // Link for the word "Halcyon" in the About caption. Leave empty to show plain text.
 const HALCYON_URL = "https://halcyonaccelerator.org/founder/julio-lavalle/";
 
-const SKILLS = [
+const PILLARS = [
   {
-    title: "Product",
-    text: "0→1 strategy, roadmapping, and the judgment calls that decide what not to build.",
+    num: "01",
+    title: "Product leadership",
+    sub: "From ambiguity to shipped product.",
+    desc: "Turn ambiguous problems into clear product decisions, align teams around outcomes, and stay close to execution from discovery through production.",
+    meta: "0→1 · strategy · discovery · prioritization · execution · measurement",
   },
   {
-    title: "AI & Data",
-    text: "Agent design, evaluation harnesses, reliability guardrails, production ML systems.",
+    num: "02",
+    title: "AI-native product",
+    sub: "From probabilistic systems to reliable experiences.",
+    desc: "Design AI products around real model capabilities and constraints — then build the evaluation, guardrails, and feedback loops required to make them reliable in production.",
+    meta: "agentic workflows · evaluation · document intelligence · conversational AI · automation",
   },
   {
-    title: "Fintech",
-    text: "Open finance, embedded lending, cross-border payments, regulatory-aware product.",
+    num: "03",
+    title: "Technical execution",
+    sub: "Close enough to engineering to prototype, investigate and ship.",
+    desc: "Prototype with AI coding tools to test product ideas before engineering investment, then work directly across APIs, data models, logs, PRs, tests, and production systems to investigate problems and ship alongside the team.",
+    meta: "AI prototyping · APIs · SQL/Postgres · CI/CD · Playwright · observability · feature flags",
   },
   {
-    title: "Tools",
-    text: "Next.js, TypeScript, Python, CI/CD, the full PR-based development lifecycle.",
+    num: "04",
+    title: "Fintech & platforms",
+    sub: "Deep financial product and infrastructure experience.",
+    desc: "Built consumer and B2B financial products across Open Finance, lending, and marketplaces, including infrastructure connecting financial institutions, data, and third-party providers.",
+    meta: "Open Finance · lending · marketplaces · financial data · B2C → B2B",
   },
 ];
 
@@ -84,12 +96,17 @@ export default function Home() {
       <section id="skills" className="blk">
         <div className="wrap">
           <h2 className="h2">What I bring</h2>
-          <div className="skills">
-            {SKILLS.map((s) => (
-              <div className="skill" key={s.title}>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-              </div>
+          <div className="caps">
+            {PILLARS.map((p) => (
+              <article className="cap" key={p.num}>
+                <span className="cap-num">{p.num}</span>
+                <div>
+                  <h3 className="cap-title">{p.title}</h3>
+                  <p className="cap-sub">{p.sub}</p>
+                  <p className="cap-desc">{p.desc}</p>
+                  <p className="cap-meta">{p.meta}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>

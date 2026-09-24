@@ -51,3 +51,23 @@ markers to the project grid, since it isn't a sequence.
 - Motion: there currently isn't any beyond the hover border-color
   transition. If you add a hero entrance animation, keep it to one
   orchestrated moment rather than fading in every section.
+
+## Homepage v2 (Sep 2026)
+
+The homepage was redesigned around a radial methodology map. The case-study
+pages under `/projects/[slug]` still use the original Fraunces + Plex Mono
+system described above; the homepage has its own scoped styles.
+
+- **Scope:** all homepage CSS lives in `app/home.css` under the `.home` class,
+  so it cannot leak into case-study pages.
+- **Type:** Saira (headlines) and Barlow (body) via `app/fonts.ts`, plus IBM
+  Plex Mono for labels. Uppercase mono labels are allowed inside the
+  methodology diagram as data labels.
+- **Methodology map:** signals, sources, rings and eras live in
+  `content/methodology.ts`. To update the monthly synthesis, edit `SIGNALS`
+  (each signal carries its own source and link) and the `SNAPSHOT` date. The
+  drawing logic is in `lib/methodology.ts`.
+- **Gallery:** driven by the MDX files in `content/projects/`, professional
+  projects first, then builds. Each card links to its case-study page.
+- **Placeholders still to replace:** the `[Project visual — TBD]` boxes and
+  the `[Draft illustration — style TBD]` caption on the About image.

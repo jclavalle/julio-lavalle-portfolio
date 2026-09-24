@@ -6,6 +6,9 @@ import Gallery, { type GalleryItem } from "@/components/home/Gallery";
 import Methodology from "@/components/home/Methodology";
 import SectionNav from "@/components/home/SectionNav";
 
+// Link for the word "Halcyon" in the About caption. Leave empty to show plain text.
+const HALCYON_URL = "https://halcyonaccelerator.org/founder/julio-lavalle/";
+
 const SKILLS = [
   {
     title: "Product",
@@ -91,22 +94,41 @@ export default function Home() {
           <div className="about">
             <figure>
               <Image
-                src="/julio-illustration.webp"
-                width={1774}
-                height={887}
-                sizes="(max-width: 700px) 100vw, 380px"
-                alt="Illustrated portrait of Julio Lavalle presenting product work"
+                src="/julio-halcyon.webp"
+                width={1448}
+                height={1086}
+                sizes="(max-width: 860px) 100vw, 460px"
+                alt="Illustration of Julio pitching product screens on stage"
               />
-              <figcaption>[Draft illustration — style TBD]</figcaption>
+              <figcaption>
+                AI reinterpretation of an investor pitch at{" "}
+                {HALCYON_URL ? (
+                  <a className="clink" href={HALCYON_URL} target="_blank" rel="noopener noreferrer">
+                    Halcyon
+                  </a>
+                ) : (
+                  "Halcyon"
+                )}
+                , Washington, DC, during my founder years.
+              </figcaption>
             </figure>
             <div className="txt">
-              <h2 className="h2">About</h2>
-              <p>
-                I&apos;m Julio Lavalle, a product leader and founder who spent 12+ years building
-                fintech in the US and Latin America, and who now works at the technical edge of AI
-                product: agents, evaluation, and reliability. This site is a record of what
-                I&apos;ve built, with the receipts.
+              <p className="label">About</p>
+              <h2>
+                I started as a founder.
+                <br />
+                That&apos;s still how I approach product.
+              </h2>
+              <p className="copy">
+                Building MiBolsillo from zero and scaling it across Latin America shaped how I work
+                today: close to customers, comfortable with ambiguity, and willing to move between
+                strategy and technical execution. Since then, I&apos;ve built Open Finance
+                infrastructure at Conecta Pro and AI-native products at Clade. Today, I&apos;m
+                particularly interested in the increasingly blurry boundary between product and
+                engineering &mdash; and how AI enables small, strong teams to build and ship things
+                that previously required much larger organizations.
               </p>
+              <p className="where">Based in Rio de Janeiro · Built across LATAM · Worked globally</p>
             </div>
           </div>
         </div>

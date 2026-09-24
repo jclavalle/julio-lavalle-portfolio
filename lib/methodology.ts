@@ -67,6 +67,10 @@ export function initMethodology(root: HTMLElement): () => void {
   const dotsG = q<SVGGElement>("#dots");
   const selRing = q<SVGCircleElement>("#selring");
   const legend = q<HTMLOListElement>("#legend");
+  const top = q<HTMLElement>(".top");
+  const conn = q<SVGPathElement>("#conn");
+  const sigCard = q<HTMLElement>("#sig");
+  const narrow = window.matchMedia("(max-width: 1000px)");
 
   const defs = el("defs", {});
   svg.insertBefore(defs, svg.children[1] ?? null);
@@ -213,31 +217,60 @@ export function initMethodology(root: HTMLElement): () => void {
     legend.querySelectorAll("li").forEach((li) => {
       li.setAttribute("aria-current", Number(li.dataset.ring) === x.ring ? "true" : "false");
     });
+    drawConnector();
+  }
+
+  // Elbow line from the signal box to the selected dot, so it is clear the
+  // box changes with every dot. Coordinates are relative to .top.
+  function drawConnector() {
+    if (narrow.matches) {
+      conn.setAttribute("d", "");
+      return;
+    }
+    const t = top.getBoundingClientRect();
+    const c = sigCard.getBoundingClientRect();
+    const d = placed[current].el.getBoundingClientRect();
+    const cx = c.left - t.left;
+    const cy = c.top - t.top + 28;
+    const dx = d.left + d.width / 2 - t.left;
+    const dy = d.top + d.height / 2 - t.top;
+    const gap = 13;
+    if (Math.abs(dy - cy) < gap * 1.5) {
+      conn.setAttribute("d", `M${cx} ${cy} H${dx + gap}`);
+      return;
+    }
+    const endY = dy > cy ? dy - gap : dy + gap;
+    conn.setAttribute("d", `M${cx} ${cy} H${dx} V${endY}`);
   }
 
   placed.forEach((x, i) => {
     const [px, py] = point(x.rr, x.th);
     x.x = px;
     x.y = py;
-    const c = el(
+    // A larger invisible circle is the hover/click target; the visible dot follows it.
+    const hit = el(
       "circle",
       {
-        class: "dot",
+        class: "hit",
         cx: px.toFixed(2),
         cy: py.toFixed(2),
-        r: 5.5,
-        fill: DURABILITY[x.status][2],
+        r: 11,
+        fill: "transparent",
         tabindex: 0,
         role: "button",
-        "data-i": i,
         "aria-label": `${x.name}. ${DURABILITY[x.status][0]}, ${x.when}.`,
       },
       dotsG
     );
+    const c = el(
+      "circle",
+      { class: "dot", cx: px.toFixed(2), cy: py.toFixed(2), r: 6, fill: DURABILITY[x.status][2] },
+      dotsG
+    );
     x.el = c;
-    c.addEventListener("pointerenter", () => select(i));
-    c.addEventListener("click", () => select(i));
-    c.addEventListener("focus", () => select(i));
+    hit.addEventListener("pointerenter", () => select(i));
+    hit.addEventListener("click", () => select(i));
+    hit.addEventListener("focus", () => select(i));
   });
 
   function setHighlight(k: number | null) {
@@ -261,7 +294,17 @@ export function initMethodology(root: HTMLElement): () => void {
 
   select(current);
 
+  const redraw = () => drawConnector();
+  const observer = new ResizeObserver(redraw);
+  observer.observe(top);
+  window.addEventListener("resize", redraw);
+  narrow.addEventListener("change", redraw);
+  document.fonts?.ready.then(redraw);
+
   return () => {
+    observer.disconnect();
+    window.removeEventListener("resize", redraw);
+    narrow.removeEventListener("change", redraw);
     [band, hls, grid, labels, dotsG, legend].forEach((n) => n.replaceChildren());
     defs.remove();
   };

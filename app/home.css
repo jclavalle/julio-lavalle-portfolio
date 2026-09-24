@@ -65,64 +65,83 @@
 @media (prefers-reduced-motion:reduce){
   .home *{transition:none!important}
 }
-#method .m-h{margin-top:0}
-#method .top{display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); gap:56px; align-items:start}
-#method .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-2);
-  display:flex; align-items:center; gap:10px; margin:8px 0 22px}
-#method .eyebrow::before{content:""; width:9px; height:9px; background:var(--o-deep)}
-#method .m-h{font-family:var(--display); font-weight:500; font-size:clamp(38px,4.4vw,62px); line-height:1.04; letter-spacing:-.012em; margin:0 0 22px}
-#method .m-h .l1{display:block}
-#method .m-h .l2{display:inline-block; background:var(--ink); color:var(--on-ink); padding:.02em .16em .08em; margin-top:.06em; border-radius:3px}
-#method .lede{font-size:18px; line-height:1.5; color:var(--ink-2); max-width:34em; margin:0 0 24px}
-#method .axes{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2);
-  display:flex; flex-wrap:wrap; gap:6px 18px; margin:0 0 18px}
-#method .key{display:flex; flex-wrap:wrap; gap:8px 20px; font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin:0 0 22px}
-#method .key span{display:inline-flex; align-items:center; gap:8px}
-#method .dotk{width:10px; height:10px; border-radius:50%; display:inline-block}
-#method .foot{font-size:13.5px; line-height:1.5; color:var(--muted); max-width:36em; margin:0}
-#method .figure{position:relative}
+#method.blk{padding-block:32px 28px; scroll-margin-top:0}
+#method .top{position:relative; display:grid; grid-template-columns:minmax(0,660px) minmax(0,1fr); gap:44px; align-items:start}
+#method .left{display:flex; flex-direction:column; gap:14px}
+#method .figure{position:relative; margin-inline:auto; width:clamp(340px, calc((100vh - 430px) * 1.03), 470px); max-width:100%}
 #method #map{display:block; width:100%; height:auto; overflow:visible}
-#method .ring-t{font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; fill:var(--ink-2)}
-#method .band-t{font-family:var(--mono); font-size:11px; letter-spacing:.16em; fill:var(--ink)}
-#method .cap-t{font-family:var(--mono); font-size:12px; letter-spacing:.14em; fill:var(--ink)}
-#method .dot{cursor:pointer; transition:opacity .15s, r .15s; outline:none}
-#method .dot:hover, #method .dot:focus-visible{r:7.5}
+#method .ring-t{font-family:var(--mono); font-size:13px; letter-spacing:.05em; fill:var(--ink-2)}
+#method .band-t{font-family:var(--mono); font-size:13.5px; letter-spacing:.14em; fill:var(--ink)}
+#method .cap-t{font-family:var(--mono); font-size:14px; letter-spacing:.12em; fill:var(--ink)}
+#method .dot{transition:opacity .15s, r .15s; pointer-events:none}
+#method .hit{cursor:pointer; outline:none}
+#method .hit:hover + .dot, #method .hit:focus-visible + .dot{r:8}
 #method .dot.dim{opacity:.18}
 #method .hl{fill:none; stroke:transparent; transition:stroke .15s}
 #method .hl.on{stroke:rgba(237,233,222,.08)}
-#method .card{background:var(--ground); color:var(--ink); border:1.25px solid var(--ink); border-radius:6px; font-family:var(--body); margin:0 0 16px}
-#method .card-sig{padding:6px 16px 14px}
-#method .card-sig .row{padding:9px 0; border-bottom:1px solid var(--rule)}
-#method .card-sig .k{display:block; font-size:13px; color:var(--ink-2)}
-#method .card-sig .v{display:block; font-size:14.5px; line-height:1.3; margin-top:2px; text-wrap:balance}
-#method .card-sig .v.mono{font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; text-transform:uppercase; display:flex; align-items:center; gap:8px}
-#method .card-sig .note{font-size:13px; line-height:1.4; color:var(--ink-2); margin:9px 0 0}
-#method .nb-head{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 16px; border-bottom:1.25px solid var(--ink)}
-#method .nb-title{font-family:var(--display); font-size:21px}
-#method .badge{font-family:var(--mono); font-size:11px; letter-spacing:.06em; background:var(--ink); color:var(--on-ink); padding:3px 8px; border-radius:3px; white-space:nowrap}
-#method .lead-row{display:flex; align-items:baseline; gap:8px; padding:10px 16px 0; font-size:14px; color:var(--ink-2)}
-#method .lead-row i{flex:1; border-bottom:1px solid var(--ink-2); transform:translateY(-4px)}
-#method .lead-row b{font-family:var(--mono); font-weight:500; color:var(--ink); font-variant-numeric:tabular-nums}
-#method .src{margin-top:12px; padding-top:10px; border-top:1px solid var(--rule); font-size:13px; line-height:1.45; color:var(--ink-2)}
-#method .src-k{display:block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:3px}
-#method .src-k b{font-weight:500; color:var(--ink)}
-#method .src a{display:inline-block; margin-top:3px; font-family:var(--mono); font-size:12px; color:var(--o-deep); text-decoration:underline; text-underline-offset:2px; word-break:break-all}
-#method .src a:hover{color:var(--ink)}
-#method .src .pend{display:inline-block; margin-top:3px; font-size:12.5px; color:var(--muted); font-style:italic}
-#method .card-nber .cap{font-size:12.5px; color:var(--muted); padding:10px 16px 14px; margin:0}
-#method .layers{list-style:none; margin:44px 0 0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px}
-#method .layers li{display:grid; grid-template-columns:24px 1fr; gap:2px 6px; padding:9px 12px 11px; border:1px solid var(--rule); border-radius:4px; outline:none; transition:background .15s, border-color .15s}
+#method .conn{position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; z-index:2}
+#method .conn path{fill:none; stroke:var(--ink); stroke-width:1.1}
+
+#method .layers{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px}
+#method .layers li{display:grid; grid-template-columns:22px 1fr; gap:1px 6px; padding:8px 10px 9px; border:1px solid var(--rule); border-radius:4px; outline:none; transition:background .15s, border-color .15s}
 #method .layers li.on, #method .layers li:focus-visible{background:rgba(237,233,222,.07)}
-#method .layers li[aria-current="true"]{border-color:var(--o-deep)}
-#method .layers .idx{font-family:var(--mono); font-size:11px; color:var(--ink-2); padding-top:3px; font-variant-numeric:tabular-nums}
+#method .layers li[aria-current="true"]{border-color:var(--o-deep); background:rgba(95,168,140,.10)}
+#method .layers .idx{font-family:var(--mono); font-size:11px; color:var(--ink-2); padding-top:2px; font-variant-numeric:tabular-nums}
 #method .layers li[aria-current="true"] .idx{color:var(--o-deep); font-weight:500}
-#method .layers .nm{font-family:var(--display); font-size:15.5px; font-weight:500; line-height:1.25}
-#method .layers .ds{grid-column:2; font-size:12.5px; line-height:1.4; color:var(--ink-2)}
-@media (max-width:1000px){
-  #method .top{grid-template-columns:1fr; gap:32px}
-  #method .layers{grid-template-columns:repeat(2,minmax(0,1fr))}
+#method .layers .nm{font-family:var(--display); font-size:14.5px; font-weight:500; line-height:1.25}
+#method .layers .ds{grid-column:2; font-size:12px; line-height:1.35; color:var(--ink-2)}
+
+#method .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-2); display:flex; align-items:center; gap:10px; margin:0 0 12px}
+#method .eyebrow::before{content:""; width:9px; height:9px; background:var(--o-deep)}
+#method .m-h{font-family:var(--display); font-weight:500; font-size:clamp(28px,3vw,42px); line-height:1.04; letter-spacing:-.012em; margin:0 0 12px}
+#method .m-h .l1{display:block}
+#method .m-h .l2{display:inline-block; background:var(--ink); color:var(--on-ink); padding:.02em .16em .08em; margin-top:.06em; border-radius:3px}
+#method .lede{font-size:15.5px; line-height:1.45; color:var(--ink-2); max-width:36em; margin:0 0 10px}
+#method .axes{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); display:flex; flex-wrap:wrap; gap:4px 16px; margin:0 0 8px}
+#method .key{display:flex; flex-wrap:wrap; gap:6px 18px; font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin:0 0 14px}
+#method .key span{display:inline-flex; align-items:center; gap:8px}
+#method .dotk{width:10px; height:10px; border-radius:50%; display:inline-block; box-sizing:border-box}
+#method .foot{font-size:12.5px; line-height:1.45; color:var(--muted); max-width:40em; margin:0}
+
+#method .card{background:var(--ground); color:var(--ink); border:1.25px solid var(--ink); border-radius:6px; font-family:var(--body); margin:0 0 12px}
+#method .card-sig{padding:12px 16px 12px}
+#method .k{display:block; font-size:11.5px; color:var(--muted)}
+#method .sig-name{font-family:var(--display); font-size:17px; line-height:1.25; margin:2px 0 0}
+#method .sig-meta{display:grid; grid-template-columns:auto auto 1fr; gap:4px 22px; padding:9px 0; margin:10px 0; border-block:1px solid var(--rule)}
+#method .sig-meta .v{display:flex; align-items:center; gap:7px; margin-top:2px; font-family:var(--mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase}
+#method .note{font-size:13.5px; line-height:1.4; color:var(--ink-2); margin:0}
+#method .src{margin-top:10px; padding-top:8px; border-top:1px solid var(--rule); font-size:12.5px; line-height:1.4; color:var(--ink-2)}
+#method .src-k{display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:2px}
+#method .src-k b{font-weight:500; color:var(--ink)}
+#method .src a{display:inline-block; margin-top:2px; font-family:var(--mono); font-size:11.5px; color:var(--o-deep); text-decoration:underline; text-underline-offset:2px; word-break:break-all}
+#method .src a:hover{color:var(--ink)}
+#method .src .pend{display:inline-block; margin-top:2px; font-size:12px; color:var(--muted); font-style:italic}
+
+#method .nb-head{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:8px 14px; border-bottom:1.25px solid var(--ink)}
+#method .nb-title{font-family:var(--display); font-size:18px}
+#method .badge{font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; background:var(--ink); color:var(--on-ink); padding:3px 8px; border-radius:3px; white-space:nowrap}
+#method .nb-stats{display:grid; grid-template-columns:repeat(3,minmax(0,1fr))}
+#method .nb-stats div{padding:9px 14px 6px; border-left:1px solid var(--rule)}
+#method .nb-stats div:first-child{border-left:0}
+#method .nb-stats b{display:block; font-family:var(--mono); font-weight:500; font-size:20px; color:var(--ink); font-variant-numeric:tabular-nums}
+#method .nb-stats span{font-size:12px; color:var(--ink-2)}
+#method .card-nber .cap{font-size:12px; color:var(--muted); padding:2px 14px 10px; margin:0}
+
+@media (min-width:1001px) and (max-width:1359px){
+  #method .top{grid-template-columns:minmax(0,560px) minmax(0,1fr); gap:32px}
 }
-@media (max-width:560px){
+@media (max-width:1000px){
+  #method.blk{padding-block:48px}
+  #method .top{grid-template-columns:1fr; gap:28px}
+  #method .conn{display:none}
+  #method .figure{width:min(100%,520px)}
+  #method .m-h{font-size:clamp(32px,7vw,46px)}
+}
+@media (max-width:640px){
+  #method .layers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #method .sig-meta{grid-template-columns:1fr 1fr}
+}
+@media (max-width:420px){
   #method .layers{grid-template-columns:1fr}
 }
 .home .plink{display:block; color:inherit; text-decoration:none}

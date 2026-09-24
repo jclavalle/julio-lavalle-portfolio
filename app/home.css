@@ -25,8 +25,11 @@
 .home .hero .who{font-family:var(--mono); font-size:13px; color:var(--o-deep); margin:0 0 24px}
 .home .hero h1{font-family:var(--display); font-weight:500; font-size:clamp(40px,6.2vw,82px); line-height:1.03; letter-spacing:-.015em; margin:0 0 28px; max-width:13em; text-wrap:balance}
 .home .hero h1 em{font-style:normal; color:var(--o-deep)}
-.home .hero .status{font-family:var(--mono); font-size:14px; color:var(--muted); margin:0 0 22px}
-.home .hero .bio{font-size:19px; line-height:1.55; color:var(--ink-2); max-width:36em; margin:0}
+.home .hero .status{font-family:var(--mono); font-size:13px; color:var(--muted); margin:32px 0 0}
+.home .hero .bio{font-size:19px; line-height:1.55; color:var(--ink-2); max-width:34em; margin:0}
+.home .cta-row{margin-top:32px}
+.home .cta{display:inline-flex; align-items:center; padding:12px 22px; border:1px solid var(--o-deep); border-radius:4px; font-family:var(--mono); font-size:14px; color:var(--ink); text-decoration:none; transition:background .15s, border-color .15s}
+.home .cta:hover,.home .cta:focus-visible{background:rgba(95,168,140,.14)}
 .home .g-head{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap; margin-bottom:36px}
 .home .g-head .h2{margin:0}
 .home .g-ctrl{display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:13px; color:var(--muted)}

@@ -58,13 +58,19 @@ export default function Home() {
       <header className="wrap hero" id="top">
         <p className="who">Julio Lavalle</p>
         <h1>
-          Julio is building <em>AI-native</em> fintech products.
+          Product leader &amp; founder building <em>AI-native</em> products.
         </h1>
-        <p className="status">Currently: shipping StableFlow · São Paulo, Brazil</p>
         <p className="bio">
-          Former founder and product leader with 12+ years across the US and Latin America, now
-          working at the technical edge of AI product: agents, evaluation, and reliability.
+          10+ years building and scaling products, from founding 3 fintech companies across Latin
+          America to leading AI-native enterprise products and shipping alongside engineering
+          globally.
         </p>
+        <div className="cta-row">
+          <a className="cta" href="#work">
+            View selected work
+          </a>
+        </div>
+        <p className="status">Currently building StableFlow · Rio de Janeiro, Brazil</p>
       </header>
 
       <Methodology />

@@ -1,7 +1,7 @@
 # Design notes
 
 The site is built around one idea: you're pitching two things at once — the
-**story** (founder, product leader, 12+ years of judgment) and the **receipts**
+**story** (founder, product leader, 10+ years of judgment) and the **receipts**
 (verified numbers, stack, dates). The design gives each one its own voice
 instead of blending them.
 

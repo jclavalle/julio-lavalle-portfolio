@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
+import CaseStudyLayout from "@/components/case/CaseStudyLayout";
 
 export function generateStaticParams() {
   return getAllProjects().map((project) => ({ slug: project.slug }));
@@ -16,6 +17,15 @@ export default function ProjectPage({
   if (!project) notFound();
 
   const { frontmatter, content } = project;
+
+  if (frontmatter.layout === "case") {
+    const sameTrack = getAllProjects().filter(
+      (p) => p.frontmatter.track === frontmatter.track
+    );
+    const idx = sameTrack.findIndex((p) => p.slug === project.slug);
+    const next = idx >= 0 ? sameTrack[idx + 1] ?? null : null;
+    return <CaseStudyLayout project={project} next={next} />;
+  }
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16 md:py-24">

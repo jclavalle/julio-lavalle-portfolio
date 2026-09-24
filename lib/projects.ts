@@ -19,6 +19,16 @@ export type ProjectFrontmatter = {
   location?: string;
   status: "live" | "in-progress";
   order?: number;
+  // Optional: render the project with the wider visual case-study layout.
+  layout?: "case";
+  eyebrow?: string;
+  pageTitle?: string;
+  description?: string;
+  tags?: string[];
+  // Optional visual shown beside the hero text on wide screens.
+  heroVisual?: "phone";
+  // Optional image shown on the homepage gallery card (falls back to a placeholder).
+  cardImage?: string;
   stack: string[];
   metrics?: ProjectMetric[];
   links?: ProjectLink[];

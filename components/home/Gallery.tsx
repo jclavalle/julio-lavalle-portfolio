@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -10,6 +11,8 @@ export type GalleryItem = {
   date: string;
   tag: string;
   inProgress: boolean;
+  image?: string;
+  imageAlt?: string;
 };
 
 const GAP = 28;
@@ -58,7 +61,20 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
         {items.map((item) => (
           <article className="pcard" key={item.slug}>
             <Link href={`/projects/${item.slug}`} className="plink">
-              <div className="pvis">[Project visual — TBD]</div>
+              <div className="pvis">
+                {item.image ? (
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt ?? ""}
+                    fill
+                    sizes="(max-width: 480px) 82vw, 380px"
+                    className="object-cover"
+                    style={{ objectPosition: "85% 50%" }}
+                  />
+                ) : (
+                  "[Project visual — TBD]"
+                )}
+              </div>
               <div className="pmeta">
                 <span className={item.inProgress ? "tag wip" : "tag"}>{item.tag}</span>
                 <span className="pdate">{item.date}</span>

@@ -56,6 +56,8 @@ function galleryItems(): GalleryItem[] {
       date: professional ? f.period : `${f.period} · ${f.org}`,
       tag: inProgress ? "In progress" : professional ? "Leadership" : "Build",
       inProgress,
+      image: f.cardImage,
+      imageAlt: `${f.org} product visual`,
     };
   });
 }

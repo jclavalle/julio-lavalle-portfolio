@@ -21,6 +21,9 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],
+        // Homepage pair: Saira for headings, Barlow for body copy (see app/fonts.ts).
+        display: ["var(--font-saira)", "Avenir Next", "Segoe UI", "sans-serif"],
+        body: ["var(--font-barlow)", "Helvetica Neue", "Arial", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       maxWidth: {

@@ -1,6 +1,6 @@
 /* Homepage styles. Everything is scoped under .home so the case-study pages are unaffected. */
 .home{--ground:#10141C; --ground-2:#171B24; --ink:#EDE9DE; --ink-2:#C9C4B6; --muted:#8A8578;
-  --rule:rgba(237,233,222,.22); --muted-2:#A9A497; --band:#1E2430; --on-ink:#10141C; --gold:#D9A868;
+  --rule:rgba(237,233,222,.22); --frame:rgba(237,233,222,.34); --muted-2:#A9A497; --band:#1E2430; --on-ink:#10141C; --gold:#D9A868;
   --o-deep:#5FA88C; --o-mid:#4A9377; --o-pale:#2F6E58;
   --display:var(--font-saira),"Avenir Next","Segoe UI",sans-serif;
   --body:var(--font-barlow),"Helvetica Neue",Arial,sans-serif;
@@ -82,7 +82,7 @@
 #method .hl{fill:none; stroke:transparent; transition:stroke .15s}
 #method .hl.on{stroke:rgba(237,233,222,.08)}
 #method .conn{position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; z-index:2}
-#method .conn path{fill:none; stroke:var(--ink); stroke-width:1.1}
+#method .conn path{fill:none; stroke:var(--ink-2); stroke-width:1; stroke-dasharray:4 4; opacity:.65}
 
 #method .layers{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px}
 #method .layers li{display:grid; grid-template-columns:22px 1fr; gap:1px 6px; padding:8px 10px 9px; border:1px solid var(--rule); border-radius:4px; outline:none; transition:background .15s, border-color .15s}
@@ -105,7 +105,7 @@
 #method .dotk{width:10px; height:10px; border-radius:50%; display:inline-block; box-sizing:border-box}
 #method .foot{font-size:12.5px; line-height:1.45; color:var(--muted); max-width:40em; margin:0}
 
-#method .card{background:var(--ground); color:var(--ink); border:1.25px solid var(--ink); border-radius:6px; font-family:var(--body); margin:0 0 12px}
+#method .card{background:var(--ground); color:var(--ink); border:1.25px solid var(--frame); border-radius:6px; font-family:var(--body); margin:0 0 12px}
 #method .card-sig{padding:12px 16px 12px}
 #method .k{display:block; font-size:11.5px; color:var(--muted)}
 #method .sig-name{font-family:var(--display); font-size:17px; line-height:1.25; margin:2px 0 0}
@@ -119,7 +119,7 @@
 #method .src a:hover{color:var(--ink)}
 #method .src .pend{display:inline-block; margin-top:2px; font-size:12px; color:var(--muted); font-style:italic}
 
-#method .nb-head{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:8px 14px; border-bottom:1.25px solid var(--ink)}
+#method .nb-head{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:8px 14px; border-bottom:1.25px solid var(--frame)}
 #method .nb-title{font-family:var(--display); font-size:18px}
 #method .badge{font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; background:var(--ink); color:var(--on-ink); padding:3px 8px; border-radius:3px; white-space:nowrap}
 #method .nb-stats{display:grid; grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -127,7 +127,7 @@
 #method .nb-stats div:first-child{border-left:0}
 #method .nb-stats b{display:block; font-family:var(--mono); font-weight:500; font-size:20px; color:var(--ink); font-variant-numeric:tabular-nums}
 #method .nb-stats span{font-size:12px; color:var(--ink-2)}
-#method .card-nber .cap{font-size:12px; color:var(--muted); padding:2px 14px 10px; margin:0}
+#method .card-nber .cap{display:block; grid-template-columns:none; border-top:1px solid var(--rule); font-size:12px; line-height:1.4; color:var(--muted); padding:8px 14px 10px; margin:0}
 
 @media (min-width:1001px) and (max-width:1359px){
   #method .top{grid-template-columns:minmax(0,560px) minmax(0,1fr); gap:32px}
@@ -149,6 +149,9 @@
 .home .plink{display:block; color:inherit; text-decoration:none}
 .home .plink:hover h3,.home .plink:focus-visible h3{color:var(--o-deep)}
 .home .plink:hover .pvis,.home .plink:focus-visible .pvis{border-color:var(--o-deep)}
+.home .pvis img{filter:saturate(.25); transition:filter .25s ease}
+.home .plink:hover .pvis img,.home .plink:focus-visible .pvis img{filter:none}
+@media (hover:none){.home .pvis img{filter:none}}
 .home .hero h1 em{white-space:nowrap}
 .home .caps{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:72px}
 .home .cap{display:grid; grid-template-columns:40px minmax(0,1fr); padding:22px 0 28px; border-top:1px solid var(--rule)}

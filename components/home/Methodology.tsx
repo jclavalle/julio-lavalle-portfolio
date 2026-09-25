@@ -24,7 +24,7 @@ export default function Methodology() {
                 role="group"
                 aria-label="Radial map of the methodology: eight layers from judgment at the core to compounding at the edge, with sources placed by layer and era."
               >
-                <rect x="40" y="90" width="660" height="630" rx="9" fill="none" stroke="var(--ink)" strokeWidth="1.25" />
+                <rect x="40" y="90" width="660" height="630" rx="9" fill="none" stroke="var(--frame)" strokeWidth="1.25" />
                 <text className="cap-t" x="64" y="124">LOOP UNTIL VERIFIED</text>
                 <text className="cap-t" x="64" y="144">GOAL · CRITERIA · COMPOUND</text>
                 <rect x="64" y="158" width="108" height="56" rx="4" fill="none" stroke="var(--ink)" strokeWidth="1.1" />

@@ -30,6 +30,7 @@ export type ProjectFrontmatter = {
   // Optional image shown on the homepage gallery card (falls back to a placeholder).
   cardImage?: string;
   cardImageAlt?: string;
+  cardTag?: string;
   cardFit?: "contain";
   stack: string[];
   metrics?: ProjectMetric[];

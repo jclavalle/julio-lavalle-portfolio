@@ -54,7 +54,7 @@ function galleryItems(): GalleryItem[] {
       title: f.title,
       description: professional ? `${f.org} — ${f.subtitle}` : f.subtitle,
       date: professional ? f.period : `${f.period} · ${f.org}`,
-      tag: inProgress ? "In progress" : professional ? "Leadership" : "Build",
+      tag: f.cardTag ?? (inProgress ? "In progress" : professional ? "Leadership" : "Build"),
       inProgress,
       image: f.cardImage,
       imageAlt: f.cardImageAlt ?? `${f.org} product visual`,
@@ -190,6 +190,17 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 github.com/jclavalle
+              </a>
+            </div>
+            <div>
+              <span>X</span>
+              <a
+                className="clink"
+                href="https://x.com/lavallejc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                x.com/lavallejc
               </a>
             </div>
           </div>

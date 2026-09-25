@@ -1,0 +1,63 @@
+---
+title: "Operating AI Reliability at Scale"
+subtitle: "Built the measurement, evaluation, and agent-guardrail systems that let an AI-native diligence platform run in production."
+track: "professional"
+org: "Clade"
+role: "Senior AI Product Manager"
+period: "Jul 2025 – Sep 2026"
+location: "New York / Remote"
+status: "live"
+order: 4
+stack:
+  [
+    "LLMs",
+    "Agentic Workflows",
+    "MCP",
+    "GraphQL",
+    "PostgreSQL",
+    "React",
+    "Playwright",
+    "CI/CD",
+    "LaunchDarkly",
+    "Claude Code",
+    "Cursor",
+  ]
+metrics:
+  - label: "Nightly E2E failures"
+    value: "-50%"
+  - label: "PRs authored / merged"
+    value: "20 / 10"
+  - label: "Detection to assigned ticket"
+    value: "<24h"
+links: []
+---
+
+{/*
+  TODO before publishing:
+  1. Reconcile the exact wording, sample size, and measurement period for
+     the "0.8% failure rate" and "108% adoption growth" figures against
+     the original Clade source data. Keep them hedged ("approximately")
+     until you've confirmed them — see julio_lavalle_professional_
+     experience_source_of_truth.md, section "Claims to Verify."
+  2. The PR count above (20 authored / 10 merged) comes from the itemized
+     contribution-record.md ledger, which is more precise than an earlier
+     resume draft that said 19/9. Use 20/10 going forward.
+*/}
+
+## The problem
+
+Clade built an AI-native diligence platform for institutional investors — conversational AI, document intelligence, and agentic workflows that helped investment teams turn unstructured information into matrices, tear sheets, and reports. Shipping AI features is the easy part. Knowing whether they're actually working, in production, for real customers, is not. When reliability is reactive — surfacing through a customer complaint or an outsourced QA report days later — trust erodes faster than features can rebuild it.
+
+## What I owned
+
+I worked unusually close to engineering across the full lifecycle: problem definition, design, technical scoping, implementation, automated testing, release, instrumentation, and iteration — writing code, tests, and fixes myself rather than only defining requirements.
+
+**A measurement layer for AI reliability and adoption.** I instrumented AI chat and agentic workflows to separate real failures from noise, establishing an approximate 0.8% true failure rate across a sample of production runs, and tracking roughly 108% growth in AI-chat adoption over the same period.
+
+**An autonomous "3H agent" with deterministic guardrails.** Rather than let an LLM operate freely, I designed an explicit failure taxonomy with hard boundaries between autonomous investigation, code generation, and anything touching production — permissions, idempotency, deduplication, and failure thresholds enforced deterministically, not left to model judgment.
+
+**A self-managed end-to-end testing program.** After evaluating our outsourced QA vendor against a self-managed alternative, I moved the team onto Playwright-based automated testing and built a nightly triage workflow that used AI coding agents to surface failures every morning. Over the following year I authored 20 pull requests (10 merged, 8 open, 2 closed unmerged) diagnosing and repairing flaky specs — always tracing the failure back to a real UI or data-layer change rather than muting the test. Representative fixes: a workspace-chip click that was bubbling into a parent row's modal handler, a self-referential foreign key blocking test-user teardown, and a legacy dropdown quietly removed by an unrelated PR. I also built a LogRocket → Slack → Shortcut pipeline that turned production session replays into assigned engineering tickets in under 24 hours, catching blockers during an enterprise trial that ultimately converted.
+
+## Why it mattered
+
+None of this was QA for its own sake. It was operability — giving the team a way to know, continuously, whether AI features actually worked, and a fast, unglamorous path from "something broke" to "someone's already fixing it." That's the muscle that makes an AI product trustworthy enough to sell to institutional customers, not just demo well.

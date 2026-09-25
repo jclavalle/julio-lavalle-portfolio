@@ -57,7 +57,8 @@ function galleryItems(): GalleryItem[] {
       tag: inProgress ? "In progress" : professional ? "Leadership" : "Build",
       inProgress,
       image: f.cardImage,
-      imageAlt: `${f.org} product visual`,
+      imageAlt: f.cardImageAlt ?? `${f.org} product visual`,
+      contain: f.cardFit === "contain",
     };
   });
 }

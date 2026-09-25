@@ -1,6 +1,6 @@
 ---
-title: "Operating AI Reliability at Scale"
-subtitle: "Built the measurement, evaluation, and agent-guardrail systems that let an AI-native diligence platform run in production."
+title: "Closing the Loop on Product Quality"
+subtitle: "Connected enterprise trial observations to engineering fixes and expanded E2E coverage at approximately one-fifth of the previous solution's cost."
 track: "professional"
 org: "Clade"
 role: "Senior AI Product Manager"
@@ -8,6 +8,13 @@ period: "Jul 2025 – Sep 2026"
 location: "New York / Remote"
 status: "live"
 order: 4
+layout: "case"
+cardImage: "/clade-case/card-visual.jpg"
+heroVisual: "clade-flow"
+eyebrow: "CLADE · PRODUCT QUALITY & AUTOMATION"
+pageTitle: "Turning customer friction into faster product fixes."
+description: "Built routines to observe enterprise trials, turn product issues into actionable engineering stories, and expand end-to-end test coverage at approximately one-fifth of the previous solution's cost."
+tags: ["Enterprise trials", "Observability", "Workflow automation", "E2E testing"]
 stack:
   [
     "LLMs",
@@ -33,31 +40,105 @@ links: []
 ---
 
 {/*
-  TODO before publishing:
-  1. Reconcile the exact wording, sample size, and measurement period for
-     the "0.8% failure rate" and "108% adoption growth" figures against
-     the original Clade source data. Keep them hedged ("approximately")
-     until you've confirmed them — see julio_lavalle_professional_
-     experience_source_of_truth.md, section "Claims to Verify."
-  2. The PR count above (20 authored / 10 merged) comes from the itemized
-     contribution-record.md ledger, which is more precise than an earlier
-     resume draft that said 19/9. Use 20/10 going forward.
+  Review notes (not rendered):
+  - Replaces the earlier product-tour version (Kanban/Skills/prototype screenshots removed;
+    the sanitized derivatives were deleted from public/). Per clade-quality-case-study-v2.
+  - The one-fifth-cost result is the later result Julio described, not the preliminary two-week
+    POC. No coverage percentage, savings figure or staffing comparison is claimed.
+  - The original reliability write-up (incl. POC-era figures like PR counts and the 3H agent) is
+    in content/drafts/clade-reliability.mdx, not routed. Its numbers are unverified/older.
+  - Card title/description follow the brief; card visual is still the placeholder.
 */}
 
-## The problem
+<div className="mt-14 max-w-2xl border-l border-rule pl-5 text-sm leading-relaxed text-muted md:text-base">
+  Clade builds AI-powered software for institutional investment research and diligence. My work focused on understanding how trial teams experienced the product and shortening the path from friction to investigation, engineering follow-up and release.
+</div>
 
-Clade built an AI-native diligence platform for institutional investors — conversational AI, document intelligence, and agentic workflows that helped investment teams turn unstructured information into matrices, tear sheets, and reports. Shipping AI features is the easy part. Knowing whether they're actually working, in production, for real customers, is not. When reliability is reactive — surfacing through a customer complaint or an outsourced QA report days later — trust erodes faster than features can rebuild it.
+## Understand what trial teams actually experienced
 
-## What I owned
+Enterprise trials typically lasted around two weeks, making it important to see where users were progressing and where they were getting stuck. I created recurring monitoring routines and a Trial Watch dashboard that combined activity data, qualitative observations and LogRocket session and error evidence.
 
-I worked unusually close to engineering across the full lifecycle: problem definition, design, technical scoping, implementation, automated testing, release, instrumentation, and iteration — writing code, tests, and fixes myself rather than only defining requirements.
+The goal was to connect what a client was trying to achieve with the behavior and issues visible in the product.
 
-**A measurement layer for AI reliability and adoption.** I instrumented AI chat and agentic workflows to separate real failures from noise, establishing an approximate 0.8% true failure rate across a sample of production runs, and tracking roughly 108% growth in AI-chat adoption over the same period.
+<div className="mt-8">
+  <StepRow
+    items={[
+      { k: "OBSERVE ACTIVITY", d: "Review sessions, usage and attempted workflows." },
+      { k: "INSPECT FRICTION", d: "Bring together errors, captured product states and qualitative observations." },
+      { k: "IDENTIFY FOLLOW-UP", d: "Turn those findings into a clear picture of what needed investigation or a fix." },
+    ]}
+  />
+</div>
 
-**An autonomous "3H agent" with deterministic guardrails.** Rather than let an LLM operate freely, I designed an explicit failure taxonomy with hard boundaries between autonomous investigation, code generation, and anything touching production — permissions, idempotency, deduplication, and failure thresholds enforced deterministically, not left to model judgment.
+<ZoomFigure
+  className="mt-10"
+  src="/clade-case/trial-watch-overview.png"
+  w={2265}
+  h={794}
+  alt="Anonymized Trial Watch dashboard showing activity totals and a user activity table."
+  caption="Trial Watch combined trial activity and user-level observations to focus investigation. Session evidence came from LogRocket exports; names, emails, locations and institution are masked."
+  kind="Anonymized screenshot"
+  sizes="(max-width: 1024px) 92vw, 1024px"
+/>
 
-**A self-managed end-to-end testing program.** After evaluating our outsourced QA vendor against a self-managed alternative, I moved the team onto Playwright-based automated testing and built a nightly triage workflow that used AI coding agents to surface failures every morning. Over the following year I authored 20 pull requests (10 merged, 8 open, 2 closed unmerged) diagnosing and repairing flaky specs — always tracing the failure back to a real UI or data-layer change rather than muting the test. Representative fixes: a workspace-chip click that was bubbling into a parent row's modal handler, a self-referential foreign key blocking test-user teardown, and a legacy dropdown quietly removed by an unrelated PR. I also built a LogRocket → Slack → Shortcut pipeline that turned production session replays into assigned engineering tickets in under 24 hours, catching blockers during an enterprise trial that ultimately converted.
+## Turn observations into engineering follow-through
 
-## Why it mattered
+Visibility mattered when it led to action. I automated the creation of engineering stories from trial findings and routed issues to engineers so the team could investigate and ship fixes quickly. I coordinated end-of-day cherry-picks for ready fixes.
 
-None of this was QA for its own sake. It was operability — giving the team a way to know, continuously, whether AI features actually worked, and a fast, unglamorous path from "something broke" to "someone's already fixing it." That's the muscle that makes an AI product trustworthy enough to sell to institutional customers, not just demo well.
+<ZoomFigure
+  className="mt-10"
+  src="/clade-case/trial-watch-session.png"
+  w={2166}
+  h={722}
+  alt="Anonymized Trial Watch session summary with observations and a highlighted issue to investigate."
+  caption="Session observations connected what a trial user attempted with a specific issue requiring investigation. Names, fund and company references are masked."
+  kind="Anonymized screenshot"
+  sizes="(max-width: 1024px) 92vw, 1024px"
+/>
+
+<div className="mt-10">
+  <Flow
+    steps={[
+      "Trial activity",
+      "Session and error evidence",
+      "Issue investigation",
+      "Automated engineering story",
+      "Engineering fix",
+      "Validation and release follow-up",
+    ]}
+  />
+</div>
+
+<Note>Automation supported the monitoring and handoff; engineering still owned investigation, implementation and the release checks. The aim was fast follow-through during trials, not an unattended production-release pipeline.</Note>
+
+## Expand regression coverage at a lower cost
+
+Alongside the trial-feedback loop, I built an internal end-to-end testing approach to check important product journeys repeatedly. Playwright tests and nightly runs provided a complementary signal to customer observations, while AI-assisted triage supported failure investigation and proposed repairs.
+
+<Callout value="~1/5 the previous solution cost" label="Increased E2E coverage" />
+
+<E2EPipeline />
+
+<Note>Illustrative mockups of each step, built without real data. They show the shape of the workflow, not actual test results or customer information.</Note>
+
+<p className="mb-4 mt-8 max-w-prose text-base leading-relaxed text-paper/90 md:text-lg">
+  A failing test needed to be investigated: it could reflect a product defect, an outdated test or an environment problem. Repairs needed to preserve the intended behavior being tested, rather than simply make the run pass.
+</p>
+
+## What I owned and what changed
+
+<div className="mt-8">
+  <Owned
+    items={[
+      { k: "TRIAL VISIBILITY", d: "Created monitoring routines and a dashboard connecting quantitative activity with qualitative feedback and session evidence." },
+      { k: "ENGINEERING FOLLOW-THROUGH", d: "Automated story creation and coordinated rapid fixes and release follow-up during trials." },
+      { k: "REGRESSION COVERAGE", d: "Built the internal E2E approach and supporting investigation workflow, increasing coverage at approximately one-fifth of the previous solution's cost." },
+    ]}
+  />
+</div>
+
+<p className="mb-4 mt-8 max-w-prose text-base leading-relaxed text-paper/90 md:text-lg">
+  These efforts gave the team two complementary views of quality: what customers experienced in practice and what repeatable tests could check before the same workflows regressed.
+</p>
+
+<Principles items={["Product quality depends on a repeatable path from evidence to action—and checks that help the team maintain that progress."]} />

@@ -4,6 +4,9 @@ import type { Project } from "@/lib/projects";
 import { barlow, saira } from "@/app/fonts";
 import HeroVisual from "./HeroVisual";
 import ConectaHeroPhone from "./ConectaHeroPhone";
+import { E2EPipeline } from "./Mockups";
+import ZoomFigure from "./ZoomFigure";
+import { Callout, CladeHeroFlow, Flow, Principles } from "./CladeBlocks";
 import StepRow from "./StepRow";
 import PhoneJourney from "./PhoneJourney";
 import PlatformDiagram from "./PlatformDiagram";
@@ -39,6 +42,11 @@ const components = {
   Bridge,
   Lessons,
   Note,
+  Flow,
+  Principles,
+  Callout,
+  E2EPipeline,
+  ZoomFigure,
 };
 
 export default function CaseStudyLayout({
@@ -49,6 +57,7 @@ export default function CaseStudyLayout({
   next: Project | null;
 }) {
   const { frontmatter: f, content } = project;
+  const landscape = f.heroVisual === "clade-flow";
 
   return (
     <main className={`${saira.variable} ${barlow.variable} mx-auto max-w-5xl px-6 py-16 font-body md:py-24`}>
@@ -56,7 +65,13 @@ export default function CaseStudyLayout({
         &larr; Back
       </Link>
 
-      <header className="mb-4 mt-8 grid gap-y-0 lg:mr-[calc(-1*clamp(0px,(100vw-1040px)/2,8rem))] lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-x-14">
+      <header
+        className={
+          landscape
+            ? "mb-4 mt-8 grid gap-y-0 lg:mr-[calc(-1*clamp(0px,(100vw-1040px)/2,8rem))] lg:grid-cols-[minmax(0,11fr)_minmax(0,9fr)] lg:gap-x-12"
+            : "mb-4 mt-8 grid gap-y-0 lg:mr-[calc(-1*clamp(0px,(100vw-1040px)/2,8rem))] lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-x-14"
+        }
+      >
         <div className="lg:col-start-1 lg:row-start-1">
           {f.eyebrow && <p className="mb-4 font-mono text-xs tracking-widest text-accent">{f.eyebrow}</p>}
           <h1 className="mb-6 font-display text-4xl font-medium leading-[1.05] tracking-[-0.015em] md:text-6xl">
@@ -76,8 +91,20 @@ export default function CaseStudyLayout({
           </p>
         </div>
         {f.heroVisual && (
-          <div className="mt-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:-mb-[100px] lg:mt-8 lg:self-start">
-            {f.heroVisual === "conecta-phone" ? <ConectaHeroPhone /> : <HeroVisual />}
+          <div
+            className={
+              landscape
+                ? "mt-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-2 lg:self-start"
+                : "mt-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:-mb-[100px] lg:mt-8 lg:self-start"
+            }
+          >
+            {f.heroVisual === "clade-flow" ? (
+              <CladeHeroFlow />
+            ) : f.heroVisual === "conecta-phone" ? (
+              <ConectaHeroPhone />
+            ) : (
+              <HeroVisual />
+            )}
           </div>
         )}
       </header>

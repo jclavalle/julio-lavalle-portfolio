@@ -13,6 +13,7 @@ export type GalleryItem = {
   inProgress: boolean;
   image?: string;
   imageAlt?: string;
+  contain?: boolean;
 };
 
 const GAP = 28;
@@ -68,8 +69,8 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
                     alt={item.imageAlt ?? ""}
                     fill
                     sizes="(max-width: 480px) 82vw, 380px"
-                    className="object-cover"
-                    style={{ objectPosition: "85% 50%" }}
+                    className={item.contain ? "object-contain" : "object-cover"}
+                    style={item.contain ? undefined : { objectPosition: "85% 50%" }}
                   />
                 ) : (
                   "[Project visual — TBD]"

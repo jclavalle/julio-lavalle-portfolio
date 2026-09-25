@@ -3,6 +3,11 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Project } from "@/lib/projects";
 import { barlow, saira } from "@/app/fonts";
 import HeroVisual from "./HeroVisual";
+import ConectaHeroPhone from "./ConectaHeroPhone";
+import StepRow from "./StepRow";
+import PhoneJourney from "./PhoneJourney";
+import PlatformDiagram from "./PlatformDiagram";
+import UseCases from "./UseCases";
 import Journey from "./Journey";
 import ProductModel from "./ProductModel";
 import Evolution from "./Evolution";
@@ -21,6 +26,10 @@ const components = {
   ),
   a: (props: React.ComponentProps<"a">) => <a className="text-accent hover:underline" {...props} />,
   HeroVisual,
+  StepRow,
+  PhoneJourney,
+  PlatformDiagram,
+  UseCases,
   Journey,
   ProductModel,
   Evolution,
@@ -66,9 +75,9 @@ export default function CaseStudyLayout({
             {f.location ? ` · ${f.location}` : ""}
           </p>
         </div>
-        {f.heroVisual === "phone" && (
+        {f.heroVisual && (
           <div className="mt-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:-mb-[100px] lg:mt-8 lg:self-start">
-            <HeroVisual />
+            {f.heroVisual === "conecta-phone" ? <ConectaHeroPhone /> : <HeroVisual />}
           </div>
         )}
       </header>

@@ -8,6 +8,13 @@ period: "Jan 2024 – Jan 2025"
 location: "Latin America"
 status: "live"
 order: 3
+layout: "case"
+heroVisual: "conecta-phone"
+cardImage: "/conecta/card-visual.jpg"
+eyebrow: "CONECTA PRO · FOUNDER CASE STUDY"
+pageTitle: "From construction project to credit application."
+description: "Built a platform for financial institutions to guide borrowers from home-improvement plans to project budgets and structured credit applications, connecting construction intelligence, local pricing and credit data in one digital journey."
+tags: ["B2B2C", "Embedded finance", "Product strategy", "Integrations"]
 stack: ["Open Finance", "APIs", "KYC", "ML Scoring", "Credit Decisioning", "SQL"]
 metrics:
   - label: "Annual transaction volume analyzed"
@@ -18,6 +25,75 @@ metrics:
     value: "5 LATAM countries"
 links: []
 ---
+
+{/*
+  Review notes (not rendered):
+  - No numeric outcomes are shown until Conecta-specific figures are verified. The ~$1B,
+    35% efficiency and five-country figures from the previous version are kept in the
+    frontmatter and in the archived text at the bottom, pending confirmation of scope.
+  - The previous version described KYC and facial/document verification, ML credit scoring,
+    decisioning, an embedded marketplace, and white-label infrastructure. Those details are
+    not in this construction-finance story; see the archive below before deleting them.
+  - The historical reference images are design and use-case artifacts, not evidence of
+    production deployment, results or integration availability.
+*/}
+
+## Financing starts before the loan application.
+
+Before someone can finance a home improvement, they need to define the work, estimate materials and understand its cost. Financial institutions need that project information alongside applicant data and credit signals to evaluate the request.
+
+<Owned
+  items={[
+    { k: "BORROWER", d: "A guided way to define a project, estimate its cost and request financing." },
+    { k: "FINANCIAL INSTITUTION", d: "Structured project and applicant information that fits its products, policies and underwriting process." },
+  ]}
+/>
+
+## Turn a construction need into a structured application.
+
+<StepRow
+  items={[
+    { k: "DEFINE", d: "Select the improvement and capture project requirements." },
+    { k: "MEASURE", d: "Use dimensions to determine required materials and quantities." },
+    { k: "BUDGET", d: "Combine project requirements with local material pricing." },
+    { k: "APPLY", d: "Connect the project budget to financing and track the application." },
+  ]}
+/>
+
+<PhoneJourney />
+
+## Four inputs, one connected experience.
+
+<PlatformDiagram />
+
+## Shared capabilities, different financial journeys.
+
+<UseCases />
+
+## Connecting the product, partners and institutional workflow.
+
+<Owned
+  items={[
+    { k: "PRODUCT DIRECTION", d: "Shaping the end-to-end borrower journey around a real construction need." },
+    { k: "INTEGRATION MODEL", d: "Connecting construction intelligence, material pricing, credit data and institutional systems." },
+    { k: "INSTITUTIONAL FIT", d: "Aligning the experience with financial products, risk criteria and underwriting workflows." },
+  ]}
+/>
+
+## Extending financial context into institutional workflows.
+
+MiBolsillo explored how financial context could help people understand their finances and discover services. Conecta extended that thinking into guided journeys shaped around institutional products and processes. See the [MiBolsillo case study](/projects/mibolsillo).
+
+<Lessons
+  items={[
+    { k: "START WITH THE CUSTOMER'S GOAL", d: "Project planning creates the context for financing." },
+    { k: "USE INTEGRATIONS TO REMOVE WORK", d: "Turn measurements, prices and credit inputs into a structured application." },
+    { k: "RESPECT DECISION BOUNDARIES", d: "Support the institution's assessment while keeping the final decision with the lender." },
+  ]}
+/>
+
+{/*
+ARCHIVED PREVIOUS VERSION (not rendered) — kept so no facts are lost:
 
 ## The problem
 
@@ -37,3 +113,4 @@ Specifically, I owned:
 ## Why it mattered
 
 The decision that mattered most was refusing to sell a single consumer product and building infrastructure instead — something an institution could embed into its own experience. That's a materially harder product to get right: configurability has to hold up across institutions with different rules, data, and customers. But it's the version that becomes durable, embedded revenue rather than a vendor relationship an institution can swap out at the next renewal.
+*/}

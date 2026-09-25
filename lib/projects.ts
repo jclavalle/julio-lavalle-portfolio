@@ -26,7 +26,7 @@ export type ProjectFrontmatter = {
   description?: string;
   tags?: string[];
   // Optional visual shown beside the hero text on wide screens.
-  heroVisual?: "phone";
+  heroVisual?: "phone" | "conecta-phone";
   // Optional image shown on the homepage gallery card (falls back to a placeholder).
   cardImage?: string;
   stack: string[];

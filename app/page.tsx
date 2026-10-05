@@ -8,6 +8,7 @@ import SectionNav from "@/components/home/SectionNav";
 
 // Link for the word "Halcyon" in the About caption. Leave empty to show plain text.
 const HALCYON_URL = "https://halcyonaccelerator.org/founder/julio-lavalle/";
+const RESEARCHGATE_URL = "https://www.researchgate.net/profile/Julio-Lavalle";
 
 const PILLARS = [
   {
@@ -152,7 +153,17 @@ export default function Home() {
                 infrastructure at Conecta Pro and AI-native products at Clade. Today, I&apos;m
                 particularly interested in the increasingly blurry boundary between product and
                 engineering &mdash; and how AI enables small, strong teams to build and ship things
-                that previously required much larger organizations.
+                that previously required much larger organizations. I also write{" "}
+                <a
+                  className="clink"
+                  href={RESEARCHGATE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-umami-event="about-research"
+                >
+                  research
+                </a>{" "}
+                on AI and finance alongside this work.
               </p>
               <p className="where">Based in Rio de Janeiro · Built across LATAM · Worked globally</p>
             </div>
@@ -166,7 +177,7 @@ export default function Home() {
           <div className="contact">
             <div>
               <span>Email</span>
-              <a className="clink" href="mailto:jlavalle@usp.br">
+              <a className="clink" href="mailto:jlavalle@usp.br" data-umami-event="contact-email">
                 jlavalle@usp.br
               </a>
             </div>
@@ -174,7 +185,7 @@ export default function Home() {
               <span>LinkedIn</span>
               <a
                 className="clink"
-                href="https://www.linkedin.com/in/juliolavalle/"
+                href="https://www.linkedin.com/in/juliolavalle/" data-umami-event="contact-linkedin"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -185,7 +196,7 @@ export default function Home() {
               <span>GitHub</span>
               <a
                 className="clink"
-                href="https://github.com/jclavalle"
+                href="https://github.com/jclavalle" data-umami-event="contact-github"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -196,11 +207,22 @@ export default function Home() {
               <span>X</span>
               <a
                 className="clink"
-                href="https://x.com/lavallejc"
+                href="https://x.com/lavallejc" data-umami-event="contact-x"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 x.com/lavallejc
+              </a>
+            </div>
+            <div>
+              <span>Research</span>
+              <a
+                className="clink"
+                href={RESEARCHGATE_URL} data-umami-event="contact-research"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                researchgate.net/profile/Julio-Lavalle
               </a>
             </div>
           </div>

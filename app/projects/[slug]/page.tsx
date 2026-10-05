@@ -103,6 +103,8 @@ export default function ProjectPage({
             <a
               key={link.href}
               href={link.href}
+              data-umami-event="project-link"
+              data-umami-event-label={link.label}
               className="text-accent hover:underline"
             >
               {link.label}

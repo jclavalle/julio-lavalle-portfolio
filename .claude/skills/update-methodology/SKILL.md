@@ -24,7 +24,16 @@ Notes on the sources:
 
 ## 2. Confirm which episodes he listened to
 
-Julio only feeds the map from episodes and articles he actually went through. Never draft candidates from a source he hasn't confirmed. If the sources weren't hand-picked by him, list what was found (date, show, title) and ask which ones he listened to. Read nothing in depth until he answers; sources he doesn't confirm are dropped (still log them in `reviewed.txt` at the end so they don't come back).
+Julio only feeds the map from episodes and articles he actually went through (a partial listen counts once he confirms it). Never draft candidates from a source he hasn't confirmed.
+
+If the sources weren't hand-picked by him, check Spotify for the same window:
+`python3 .claude/skills/update-methodology/scripts/spotify.py listened --since <same since date> --json`
+(only the shows in its `SHOWS` list; the refresh token is in the macOS Keychain, service `methodology-spotify`; if it says "Not connected", ask Julio to run `spotify.py auth` and approve in the browser). Match Spotify episodes to the fetched transcripts by date (±1 day) and title; AI Daily Brief titles differ slightly between Spotify, YouTube and the site. Then present three groups:
+- **Finished on Spotify** (≥80%): used without asking.
+- **Partly heard** (10–80%), with the percentage: ask him to confirm or drop each.
+- **Not started on Spotify** (<10%) and episodes only found on YouTube: list briefly, since he sometimes listens on other platforms.
+
+Read nothing in depth until he answers; sources he doesn't confirm are dropped (still log them in `reviewed.txt` at the end so they don't come back).
 
 ## 3. Read and draft candidates
 
@@ -97,4 +106,4 @@ Julio keeps a private visual log of every update: https://claude.ai/artifact/4bu
 
 ## Scheduled run (Sundays 18:00, São Paulo)
 
-Nobody is watching when it starts. Do step 1 (discover and fetch), then stop at step 2: end with the list of found episodes (date, show, title, link) and ask which ones he listened to, and whether he has articles to add. Do not read transcripts in depth or draft candidates yet. Continue from step 3 only with the sources he confirms when he replies in that session. Do **not** edit `content/methodology.ts`, commit or push until he approves.
+Nobody is watching when it starts. Do step 1 (discover and fetch), then stop at step 2: end with the three Spotify groups (finished, partly heard with %, not started) and ask him to confirm the partly heard ones, flag any not-started ones he heard elsewhere, and add any articles. Do not read transcripts in depth or draft candidates yet. Continue from step 3 only with the sources he confirms when he replies in that session. Do **not** edit `content/methodology.ts`, commit or push until he approves.

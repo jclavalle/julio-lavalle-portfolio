@@ -83,7 +83,7 @@ export function initMethodology(root: HTMLElement): () => void {
     tp.textContent = e.label;
   });
 
-  [-145, -92.5, -12.5, 79, 145].forEach((t) => {
+  [ERAS[0].e1, ...ERAS.map((e) => e.e2)].forEach((t) => {
     const [a, b] = point(244, t);
     const [c, d] = point(268, t);
     el("line", { x1: a, y1: b, x2: c, y2: d, stroke: "var(--ink)", "stroke-width": 1.2 }, band);

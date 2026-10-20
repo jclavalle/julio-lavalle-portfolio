@@ -1,5 +1,6 @@
-// Monthly-updated synthesis behind the methodology map.
-// To update: edit SIGNALS (add, change, or remove entries). Each signal carries its own source.
+// Weekly-updated synthesis behind the methodology map.
+// To update: add entries to SIGNALS (each carries its own source), bump SNAPSHOT and AS_OF.
+// The last era is always the current month; earlier months fold into the 2026 era.
 // ring = layer 1-8 (see RINGS); date = decimal year (2026.5 = mid-2026);
 // status: "e" established, "c" converging, "m" emerging (unproven).
 
@@ -33,7 +34,10 @@ export type Era = {
   e2: number;
 };
 
-export const SNAPSHOT = "Snapshot · 23 Sep 2026";
+export const SNAPSHOT = "Snapshot · 20 Oct 2026";
+
+// Month the map is current as of; used in the intro and the "Emerging" key.
+export const AS_OF = { long: "October 2026", short: "Oct 2026" };
 
 export const RINGS: Ring[] = [
   { name: "Judgment", label: "JUDGMENT", desc: "Humans own understanding, taste and accountability, including what agents write to memory." },
@@ -47,10 +51,10 @@ export const RINGS: Ring[] = [
 ];
 
 export const ERAS: Era[] = [
-  { a: -142, b: -97, lo: 0, hi: 2024, label: "CANON · ≤ 2023", e1: -145, e2: -92.5 },
-  { a: -88, b: -17, lo: 2024, hi: 2026, label: "2024 – 25", e1: -92.5, e2: -12.5 },
-  { a: -8, b: 74, lo: 2026, hi: 2026.6, label: "H1 2026 · AGENTIC ENGINEERING", e1: -12.5, e2: 79 },
-  { a: 84, b: 140, lo: 2026.6, hi: 2100, label: "SEPTEMBER 2026 SIGNALS", e1: 79, e2: 145 },
+  { a: -142, b: -118, lo: 0, hi: 2024, label: "CANON · ≤ 2023", e1: -145, e2: -115 },
+  { a: -111, b: -79, lo: 2024, hi: 2026, label: "2024 – 25", e1: -115, e2: -75 },
+  { a: -70, b: 90, lo: 2026, hi: 2026.75, label: "2026 · AGENTIC ENGINEERING", e1: -75, e2: 95 },
+  { a: 100, b: 140, lo: 2026.75, hi: 2100, label: "OCTOBER 2026 SIGNALS", e1: 95, e2: 145 },
 ];
 
 export const SIGNALS: Signal[] = [
@@ -229,7 +233,7 @@ export const SIGNALS: Signal[] = [
     name: "Benchmark distrust — the Grok 4.7 launch",
     ring: 4,
     date: 2026.72,
-    status: "m",
+    status: "c",
     when: "Sep 2026",
     note: "\"Believing benchmarks in September should be a crime.\" Evaluate on your own tasks.",
     source: { type: "Podcast", cite: "The AI Daily Brief, 22 Sep 2026: Agent Wars!", url: "https://aidailybrief.ai/e/2026-09-22" },
@@ -328,7 +332,7 @@ export const SIGNALS: Signal[] = [
     name: "Model stacks and routing — practitioners",
     ring: 6,
     date: 2026.7,
-    status: "m",
+    status: "c",
     when: "Sep 2026",
     note: "Don’t run every sub-agent on the frontier model. Match the model to the task.",
     source: { type: "Podcast", cite: "The AI Daily Brief, 11 Sep 2026: What to Use the Latest AI Tools For", url: "https://aidailybrief.ai/e/2026-09-11" },
@@ -382,7 +386,7 @@ export const SIGNALS: Signal[] = [
     name: "Multiplayer AI — Mollick, Bhatnagar, Bhani",
     ring: 7,
     date: 2026.7,
-    status: "m",
+    status: "c",
     when: "Sep 2026",
     note: "Shared agents for teams. Who is the principal? Shared memory or shared context?",
     source: { type: "Podcast", cite: "The AI Daily Brief, 7 Sep 2026: The Multiplayer AI Sprint", url: "https://aidailybrief.ai/e/2026-09-07" },
@@ -440,5 +444,187 @@ export const SIGNALS: Signal[] = [
     when: "Sep 2026",
     note: "The next model may arrive later or cost more. Hedge the \"wait for the model\" bet.",
     source: { type: "Podcast", cite: "The AI Daily Brief, 15 Sep 2026: Trump Rails Against AI Slowdown “Hoax”", url: "https://aidailybrief.ai/e/2026-09-15" },
+  },
+
+  // 20 Oct 2026 update
+  {
+    name: "Oversight isn’t free — Molly Graham",
+    ring: 1,
+    date: 2026.74,
+    status: "m",
+    when: "Sep 2026",
+    note: "Handing work to AI isn’t giving it away. You still own the result, and the mental load stays with you.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 27 Sep 2026: The grief, loneliness, and burnout sweeping through the tech industry", url: "https://www.lennysnewsletter.com/p/the-grief-loneliness-and-burnout" },
+  },
+  {
+    name: "Taste as restraint — Peter Sellis",
+    ring: 1,
+    date: 2026.72,
+    status: "m",
+    when: "Sep 2026",
+    note: "AI always adds. The human skill is choosing what not to ship; a curator who hangs everything hasn’t curated.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 20 Sep 2026: 90 minutes of unfiltered product advice from Snap and Discord’s product chief", url: "https://www.lennysnewsletter.com/p/90-minutes-of-unfiltered-product" },
+  },
+  {
+    name: "Verification becomes the human job — OpenAI’s 372 proofs",
+    ring: 1,
+    date: 2026.771,
+    status: "m",
+    when: "Oct 2026",
+    note: "AI now produces results faster than people can check and absorb them. Understanding is the bottleneck.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 9 Oct 2026: What Happens When AI Solves Your Life’s Work", url: "https://aidailybrief.ai/e/2026-10-09" },
+  },
+  {
+    name: "Your workload isn’t universal — a16z consumer AI data",
+    ring: 2,
+    date: 2026.766,
+    status: "m",
+    when: "Oct 2026",
+    note: "Only 2.2% of US households pay for AI. Builders mistake their own admin-heavy lives for everyone’s.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 7 Oct 2026: Consumers Will Never Pay for AI", url: "https://www.youtube.com/watch?v=J3n4IUwmuOM" },
+  },
+  {
+    name: "Hand-onboard unconventional users — Roman Ugarte, Grok Bot",
+    ring: 2,
+    date: 2026.688,
+    status: "m",
+    when: "Sep 2026",
+    note: "The team onboarded 200–300 people by hand, a coffee shop owner among them, and let usage patterns emerge unprompted.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 8 Sep 2026: How we built Grok Bot in a month", url: "https://www.lennysnewsletter.com/p/how-we-built-grok-bot-in-a-month" },
+  },
+  {
+    name: "\"Look at their eyes\" — Josh Woodward",
+    ring: 2,
+    date: 2026.777,
+    status: "m",
+    when: "Oct 2026",
+    note: "The early PMF signal is whether people light up at a prototype. Fall in love with the problem, not the product.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 11 Oct 2026: Why every company now needs to think and operate like a lab team", url: "https://www.lennysnewsletter.com/p/why-every-company-now-needs-to-think" },
+  },
+  {
+    name: "\"Can now\", not \"now has\" — Roman Ugarte",
+    ring: 3,
+    date: 2026.689,
+    status: "m",
+    when: "Sep 2026",
+    note: "Write the launch post first. Ship capabilities, not pixels, and unship scaffolding as models improve.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 8 Sep 2026: How we built Grok Bot in a month", url: "https://www.lennysnewsletter.com/p/how-we-built-grok-bot-in-a-month" },
+  },
+  {
+    name: "Builders still have a major — Josh Woodward",
+    ring: 3,
+    date: 2026.778,
+    status: "m",
+    when: "Oct 2026",
+    note: "Roles blur, but specialties still matter. Prototype in service of your major, not instead of it.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 11 Oct 2026: Why every company now needs to think and operate like a lab team", url: "https://www.lennysnewsletter.com/p/why-every-company-now-needs-to-think" },
+  },
+  {
+    name: "Judgment models make evals cheap — Jev, OpenAI Decisions API",
+    ring: 4,
+    date: 2026.734,
+    status: "m",
+    when: "Sep 2026",
+    note: "Yes/no and scale checks run across thousands of items for cents. One judgment per question; label 50 yourself first.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 25 Sep 2026: How People Are Actually Using Jev", url: "https://aidailybrief.ai/e/2026-09-25" },
+  },
+  {
+    name: "Personal benchmarks — Nufar Gaspar & NLW",
+    ring: 4,
+    date: 2026.767,
+    status: "m",
+    when: "Oct 2026",
+    note: "Test 4–6 of your real tasks plus one wish-list task, blind and side by side. Check any AI judge against your own taste.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 7 Oct 2026: The Best Way to Test New AI Models", url: "https://aidailybrief.ai/e/2026-10-07" },
+  },
+  {
+    name: "The harness is half the model — Gemini 4 Argon",
+    ring: 5,
+    date: 2026.785,
+    status: "m",
+    when: "Oct 2026",
+    note: "The same model scored “good” in one harness and “frontier” in another. Evaluate model and harness together.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 14 Oct 2026: What Gemini 4 Argon Is Actually Good For", url: "https://aidailybrief.ai/e/2026-10-14" },
+  },
+  {
+    name: "The bitter lesson for the org chart — Ethan Mollick",
+    ring: 5,
+    date: 2026.758,
+    status: "m",
+    when: "Oct 2026",
+    note: "Agents turn out to organize themselves well. Humans decide where to point them.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 4 Oct 2026: How to Choose Your Personal AI Agent (reading Mollick’s “The Dot and the Swarm”)", url: "https://aidailybrief.ai/e/2026-10-04" },
+  },
+  {
+    name: "Loops are scaffolding — Tibo Sottiaux",
+    ring: 5,
+    date: 2026.759,
+    status: "m",
+    when: "Oct 2026",
+    note: "Agent teams grow, then shrink with each new model. You want a system that learns, not loops you keep tuning.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 4 Oct 2026: OpenAI’s Head of ChatGPT: We’re entering a new era of AI (again)", url: "https://www.lennysnewsletter.com/p/openais-head-of-chatgpt-were-entering" },
+  },
+  {
+    name: "Colleague-pilled design — Roman Ugarte",
+    ring: 5,
+    date: 2026.69,
+    status: "m",
+    when: "Sep 2026",
+    note: "Give each bot its own cloud computer and hide the tool calls. Ask what you’d want from a human teammate.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 8 Sep 2026: How we built Grok Bot in a month", url: "https://www.lennysnewsletter.com/p/how-we-built-grok-bot-in-a-month" },
+  },
+  {
+    name: "Volume up, spend down — Ramp AI Index, KPMG Q3 Pulse",
+    ring: 6,
+    date: 2026.751,
+    status: "m",
+    when: "Oct 2026",
+    note: "Token volume rose while spend fell. Mature orgs link cost to value and run a formal harness layer.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 2 Oct 2026: What the Best Business AI Users Are Doing Different", url: "https://aidailybrief.ai/e/2026-10-02" },
+  },
+  {
+    name: "Bring your own intelligence — Sign in with ChatGPT",
+    ring: 6,
+    date: 2026.748,
+    status: "m",
+    when: "Sep 2026 · OpenAI DevDay",
+    note: "Users carry their AI subscription into apps, so apps charge only for the app layer.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 30 Sep 2026: The Most Important New AI Tools from OpenAI DevDay", url: "https://aidailybrief.ai/e/2026-09-30" },
+  },
+  {
+    name: "Team agents need an owner and agreed facts — Nufar Gaspar",
+    ring: 7,
+    date: 2026.745,
+    status: "m",
+    when: "Sep 2026",
+    note: "Choose private, shared-knowledge or team agent. Decide whose access it uses, who can ask, and where answers land.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 29 Sep 2026: How to Build Team Agents", url: "https://aidailybrief.ai/e/2026-09-29" },
+  },
+  {
+    name: "Systems built on friction — Ethan Mollick, Aaron Levie",
+    ring: 7,
+    date: 2026.742,
+    status: "m",
+    when: "Sep 2026",
+    note: "When agents remove friction, markets that profit from it break and others open up.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 28 Sep 2026: The Real Risks of AI Agents", url: "https://www.youtube.com/watch?v=fXRagdr-Q34" },
+  },
+  {
+    name: "Keep an \"almost possible\" list — Josh Woodward",
+    ring: 8,
+    date: 2026.777,
+    status: "m",
+    when: "Oct 2026",
+    note: "Track what’s almost possible and move the week it crosses over. Plan in rolling six-month windows.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 11 Oct 2026: Why every company now needs to think and operate like a lab team", url: "https://www.lennysnewsletter.com/p/why-every-company-now-needs-to-think" },
+  },
+  {
+    name: "Smooth gains, sudden thresholds — Emmanuel Ameisen",
+    ring: 8,
+    date: 2026.796,
+    status: "m",
+    when: "Oct 2026",
+    note: "Each task has a reliability bar: 80% is useless, 99% is useful. Capability creeps up, then crosses it.",
+    source: { type: "Podcast", cite: "Lenny’s Podcast, 18 Oct 2026: Inside the black box of AI: How AI models actually think", url: "https://www.lennysnewsletter.com/p/a-mind-expanding-conversation-on" },
   },
 ];

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { initMethodology } from "@/lib/methodology";
-import { SNAPSHOT } from "@/content/methodology";
+import { AS_OF, SNAPSHOT } from "@/content/methodology";
 
 export default function Methodology() {
   const root = useRef<HTMLElement>(null);
@@ -50,7 +50,7 @@ export default function Methodology() {
               <span className="l2">product building</span>
             </h2>
             <p className="lede">
-              How to build products with AI as of September 2026. Each dot is a source or signal from
+              How to build products with AI as of {AS_OF.long}. Each dot is a source or signal from
               the research, placed on the layer it shapes and the era it came from. Select a dot to
               read it.
             </p>
@@ -61,7 +61,7 @@ export default function Methodology() {
             <div className="key">
               <span><i className="dotk" style={{ background: "var(--o-deep)" }} />Established canon</span>
               <span><i className="dotk" style={{ background: "var(--o-mid)" }} />Converging in 2026</span>
-              <span><i className="dotk" style={{ background: "var(--o-pale)" }} />Emerging, Sep 2026</span>
+              <span><i className="dotk" style={{ background: "var(--o-pale)" }} />Emerging, {AS_OF.short}</span>
             </div>
 
             <aside className="card card-sig" id="sig" aria-live="polite">
@@ -95,7 +95,7 @@ export default function Methodology() {
             <p className="foot">
               This is a live synthesis of what I&apos;m hearing and reading about AI as it changes
               month to month. It&apos;s my personal synthesis, built on the sources I choose, and I
-              update this chart every month.
+              update this chart every week.
             </p>
           </div>
 

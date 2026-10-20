@@ -23,3 +23,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Podcast transcripts for the methodology map (third-party content, local only)
+.methodology-inbox/
+__pycache__/

@@ -176,6 +176,12 @@ export default function Home() {
           <h2 className="h2">Let&apos;s talk</h2>
           <div className="contact">
             <div>
+              <span>CV</span>
+              <a className="clink" href="/cv" data-umami-event="contact-cv">
+                juliolavalle.com/cv
+              </a>
+            </div>
+            <div>
               <span>Email</span>
               <a className="clink" href="mailto:jlavalle@usp.br" data-umami-event="contact-email">
                 jlavalle@usp.br

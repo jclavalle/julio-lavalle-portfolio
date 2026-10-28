@@ -23,9 +23,11 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://juliolavalle.com"),
   title: "Julio Lavalle — Product",
   description:
     "Founder and product leader building AI-native and fintech products end-to-end, across the US and Latin America.",
+  twitter: { card: "summary_large_image" },
 };
 
 // Umami Cloud analytics (visitors, pages, referrers, country/city). Only loads

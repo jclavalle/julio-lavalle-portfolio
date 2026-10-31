@@ -34,7 +34,7 @@ export type Era = {
   e2: number;
 };
 
-export const SNAPSHOT = "Snapshot · 20 Oct 2026";
+export const SNAPSHOT = "Snapshot · 31 Oct 2026";
 
 // Month the map is current as of; used in the intro and the "Emerging" key.
 export const AS_OF = { long: "October 2026", short: "Oct 2026" };
@@ -341,7 +341,7 @@ export const SIGNALS: Signal[] = [
     name: "Good-enough models — SWE-2, DeepSeek V4.1 Flash",
     ring: 6,
     date: 2026.715,
-    status: "m",
+    status: "c",
     when: "Sep 2026",
     note: "Near-frontier coding quality at a fraction of the cost.",
     source: { type: "Podcast", cite: "The AI Daily Brief, 11 Sep 2026: What to Use the Latest AI Tools For", url: "https://aidailybrief.ai/e/2026-09-11" },
@@ -440,7 +440,7 @@ export const SIGNALS: Signal[] = [
     name: "Pacing the frontier and compute limits",
     ring: 8,
     date: 2026.72,
-    status: "m",
+    status: "c",
     when: "Sep 2026",
     note: "The next model may arrive later or cost more. Hedge the \"wait for the model\" bet.",
     source: { type: "Podcast", cite: "The AI Daily Brief, 15 Sep 2026: Trump Rails Against AI Slowdown “Hoax”", url: "https://aidailybrief.ai/e/2026-09-15" },
@@ -626,5 +626,97 @@ export const SIGNALS: Signal[] = [
     when: "Oct 2026",
     note: "Each task has a reliability bar: 80% is useless, 99% is useful. Capability creeps up, then crosses it.",
     source: { type: "Podcast", cite: "Lenny’s Podcast, 18 Oct 2026: Inside the black box of AI: How AI models actually think", url: "https://www.lennysnewsletter.com/p/a-mind-expanding-conversation-on" },
+  },
+
+  // 31 Oct 2026 update
+  {
+    name: "Reasoning traces can hide actions — Cohere, Qwen 3.8",
+    ring: 1,
+    date: 2026.822,
+    status: "m",
+    when: "Oct 2026",
+    note: "The trace said no tools, yet the model tried an upload. Check real tool calls, even on weights you host.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 27 Oct 2026: What Anthropic’s IPO Filing Reveals", url: "https://aidailybrief.ai/e/2026-10-27" },
+  },
+  {
+    name: "Bottlenecks are distributed — Anthropic drug discovery",
+    ring: 2,
+    date: 2026.825,
+    status: "m",
+    when: "Oct 2026",
+    note: "There’s no single problem to automate. Work inside real programs to see where the time goes.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 28 Oct 2026: AI Can Now Create Worlds You Can Change in Real Time", url: "https://aidailybrief.ai/e/2026-10-28" },
+  },
+  {
+    name: "Would a maintainer merge it? — Frontier Code 2.0, Artificial Analysis v5",
+    ring: 4,
+    date: 2026.827,
+    status: "m",
+    when: "Oct 2026",
+    note: "Grade agents on whether the work would be accepted, using private data that’s harder to game.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 29 Oct 2026: The AI Rankings Just Got Reshuffled", url: "https://aidailybrief.ai/e/2026-10-29" },
+  },
+  {
+    name: "A verifier in the loop — Genie 4",
+    ring: 4,
+    date: 2026.825,
+    status: "m",
+    when: "Oct 2026",
+    note: "A reasoning model watches the output, verifies each step as it runs and adapts the plan.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 28 Oct 2026: AI Can Now Create Worlds You Can Change in Real Time", url: "https://aidailybrief.ai/e/2026-10-28" },
+  },
+  {
+    name: "Isolation leaks — OpenAI’s offline world",
+    ring: 5,
+    date: 2026.819,
+    status: "m",
+    when: "Oct 2026",
+    note: "Agents in separate microVMs passed secrets through the processor cache. Don’t rely on one sandbox.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 26 Oct 2026: 4 Questions for AI This Week", url: "https://aidailybrief.ai/e/2026-10-26" },
+  },
+  {
+    name: "Pick model and effort together — GPT-6.1 Terra, Artificial Analysis",
+    ring: 6,
+    date: 2026.822,
+    status: "m",
+    when: "Oct 2026",
+    note: "Terra is efficient at low and medium effort, not at the top settings. Compare at the effort you actually run.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 27 Oct 2026: What Anthropic’s IPO Filing Reveals", url: "https://aidailybrief.ai/e/2026-10-27" },
+  },
+  {
+    name: "Cheaper per task, more usage — Thomas Tunguz",
+    ring: 6,
+    date: 2026.822,
+    status: "m",
+    when: "Oct 2026",
+    note: "Opus 4.5 cut cost per task and revenue growth jumped from 48% to 132% a quarter. Price can unlock demand.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 27 Oct 2026: What Anthropic’s IPO Filing Reveals", url: "https://aidailybrief.ai/e/2026-10-27" },
+  },
+  {
+    name: "Internal agents overtook payroll — Anthropic S-1",
+    ring: 6,
+    date: 2026.822,
+    status: "m",
+    when: "Oct 2026",
+    note: "Internal Claude use, at API prices, passed payroll in April. Budget agents like headcount.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 27 Oct 2026: What Anthropic’s IPO Filing Reveals", url: "https://aidailybrief.ai/e/2026-10-27" },
+  },
+  {
+    name: "Agents are also your attackers — Jason Clinton, Aaron Levie",
+    ring: 7,
+    date: 2026.819,
+    status: "m",
+    when: "Oct 2026",
+    note: "Treat hostile agents as a user type. Fund security basics now; Clinton expects about 18 hard months.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 26 Oct 2026: 4 Questions for AI This Week", url: "https://aidailybrief.ai/e/2026-10-26" },
+  },
+  {
+    name: "Launches become checkpoints — Gemini 4 Carbon, Xiao Zhang",
+    ring: 8,
+    date: 2026.827,
+    status: "m",
+    when: "Oct 2026",
+    note: "Carbon shipped two weeks after Argon. As releases speed up, re-testing has to run automatically.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 29 Oct 2026: The AI Rankings Just Got Reshuffled", url: "https://aidailybrief.ai/e/2026-10-29" },
   },
 ];

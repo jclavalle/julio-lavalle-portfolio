@@ -34,10 +34,10 @@ export type Era = {
   e2: number;
 };
 
-export const SNAPSHOT = "Snapshot · 31 Oct 2026";
+export const SNAPSHOT = "Snapshot · 14 Nov 2026";
 
 // Month the map is current as of; used in the intro and the "Emerging" key.
-export const AS_OF = { long: "October 2026", short: "Oct 2026" };
+export const AS_OF = { long: "November 2026", short: "Nov 2026" };
 
 export const RINGS: Ring[] = [
   { name: "Judgment", label: "JUDGMENT", desc: "Humans own understanding, taste and accountability, including what agents write to memory." },
@@ -53,8 +53,8 @@ export const RINGS: Ring[] = [
 export const ERAS: Era[] = [
   { a: -142, b: -118, lo: 0, hi: 2024, label: "CANON · ≤ 2023", e1: -145, e2: -115 },
   { a: -111, b: -79, lo: 2024, hi: 2026, label: "2024 – 25", e1: -115, e2: -75 },
-  { a: -70, b: 90, lo: 2026, hi: 2026.75, label: "2026 · AGENTIC ENGINEERING", e1: -75, e2: 95 },
-  { a: 100, b: 140, lo: 2026.75, hi: 2100, label: "OCTOBER 2026 SIGNALS", e1: 95, e2: 145 },
+  { a: -70, b: 90, lo: 2026, hi: 2026.835, label: "2026 · AGENTIC ENGINEERING", e1: -75, e2: 95 },
+  { a: 100, b: 140, lo: 2026.835, hi: 2100, label: "NOVEMBER 2026 SIGNALS", e1: 95, e2: 145 },
 ];
 
 export const SIGNALS: Signal[] = [
@@ -350,7 +350,7 @@ export const SIGNALS: Signal[] = [
     name: "\"The era of subsidized tokens is ending\" — Matt Shumer",
     ring: 6,
     date: 2026.72,
-    status: "m",
+    status: "c",
     when: "Sep 2026",
     note: "OpenAI paused new $200 Pro subscriptions for lack of compute.",
     source: { type: "Podcast", cite: "The AI Daily Brief, 11 Sep 2026: What to Use the Latest AI Tools For", url: "https://aidailybrief.ai/e/2026-09-11" },
@@ -718,5 +718,97 @@ export const SIGNALS: Signal[] = [
     when: "Oct 2026",
     note: "Carbon shipped two weeks after Argon. As releases speed up, re-testing has to run automatically.",
     source: { type: "Podcast", cite: "The AI Daily Brief, 29 Oct 2026: The AI Rankings Just Got Reshuffled", url: "https://aidailybrief.ai/e/2026-10-29" },
+  },
+
+  // 14 Nov 2026 update
+  {
+    name: "Checks catch errors, not dullness — Ethan Mollick on Fable 5.2",
+    ring: 1,
+    date: 2026.86,
+    status: "m",
+    when: "Nov 2026",
+    note: "Fable’s critics fixed errors, but none asked if the work was too long or no fun. Judging good enough stays human.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 10 Nov 2026: Fable 5.2 Is the Best AI Ever. So Why Am I Not Switching Yet?", url: "https://aidailybrief.ai/e/2026-11-10" },
+  },
+  {
+    name: "Demand for intelligence is elastic — Venkatesh Rao, NLW",
+    ring: 2,
+    date: 2026.836,
+    status: "m",
+    when: "Nov 2026",
+    note: "Look for the demand AI unlocks: price, access, complexity, continuity, personalization and relationships.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 1 Nov 2026: AI Won’t Make Our Minds Useless According to 400 Years of History", url: "https://aidailybrief.ai/e/2026-11-01" },
+  },
+  {
+    name: "Concept videos for what doesn’t exist yet — NLW on agentic video",
+    ring: 3,
+    date: 2026.855,
+    status: "m",
+    when: "Nov 2026",
+    note: "Edited video is now cheap. It beats a doc when showing beats telling, or when the audience won’t read.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 8 Nov 2026: Agentic Video Is Real and Here’s What You Should Try", url: "https://aidailybrief.ai/e/2026-11-08" },
+  },
+  {
+    name: "Measured, then hill-climbed — OpenAI LifeVal",
+    ring: 4,
+    date: 2026.841,
+    status: "m",
+    when: "Nov 2026",
+    note: "Once a task becomes a benchmark target, models get good at it fast. Measure the everyday tasks you care about.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 3 Nov 2026: AI Lurches Toward Recursive Self-Improvement", url: "https://aidailybrief.ai/e/2026-11-03" },
+  },
+  {
+    name: "Name the approval gates, hand over the whole project — Alex Albert",
+    ring: 4,
+    date: 2026.861,
+    status: "m",
+    when: "Nov 2026",
+    note: "Say up front where the agent needs your approval and that the rest is its call. Then give it the whole project.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 10 Nov 2026: Fable 5.2 Is the Best AI Ever. So Why Am I Not Switching Yet?", url: "https://aidailybrief.ai/e/2026-11-10" },
+  },
+  {
+    name: "Seat budgets met a token world — Menlo 2026 enterprise report",
+    ring: 6,
+    date: 2026.849,
+    status: "m",
+    when: "Nov 2026",
+    note: "Spend per enterprise rose 4.7×, about 2.5× budget. Spend now scales with the work done, not with headcount.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 6 Nov 2026: Companies Are Spending 5x More on AI Now", url: "https://aidailybrief.ai/e/2026-11-06" },
+  },
+  {
+    name: "Capability over cost, for now — Menlo 2026 enterprise report",
+    ring: 6,
+    date: 2026.85,
+    status: "m",
+    when: "Nov 2026",
+    note: "Frontier models went from 35% to 63% of spend. Open models are 4% of spend but 19% of tokens.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 6 Nov 2026: Companies Are Spending 5x More on AI Now", url: "https://aidailybrief.ai/e/2026-11-06" },
+  },
+  {
+    name: "Incumbents win where systems of record live — Menlo",
+    ring: 7,
+    date: 2026.851,
+    status: "m",
+    when: "Nov 2026",
+    note: "AI-native companies take brand-new categories like coding (96%). Incumbents keep IT, HR and marketing.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 6 Nov 2026: Companies Are Spending 5x More on AI Now", url: "https://aidailybrief.ai/e/2026-11-06" },
+  },
+  {
+    name: "The labs will compete with you — Claude Sheets, Whiteboards, Data",
+    ring: 7,
+    date: 2026.863,
+    status: "m",
+    when: "Nov 2026",
+    note: "As the AI app becomes where work happens, the labs ship the tools around it.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 11 Nov 2026: Wall Street Has No Idea What Anthropic Is Worth", url: "https://aidailybrief.ai/e/2026-11-11" },
+  },
+  {
+    name: "Pipelines, not one-off assets — NLW on agentic video",
+    ring: 8,
+    date: 2026.856,
+    status: "m",
+    when: "Nov 2026",
+    note: "A video is a one-off; a pipeline is an application that keeps producing up-to-date versions on a schedule.",
+    source: { type: "Podcast", cite: "The AI Daily Brief, 8 Nov 2026: Agentic Video Is Real and Here’s What You Should Try", url: "https://aidailybrief.ai/e/2026-11-08" },
   },
 ];

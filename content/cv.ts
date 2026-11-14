@@ -60,6 +60,11 @@ export const CV = {
   earlier: "Plus MIT D-Lab Scale-Ups Fellow, World Bank, MGov Brasil, CAOS Focado and GBD Network in the full PDF.",
   education: [
     { degree: "MBA in AI and Big Data", school: "ICMC – USP", period: "2024 – 2025" },
+    {
+      degree: "BSc in Economics and Finance",
+      school: "Universidad Inca Garcilaso de la Vega",
+      period: "2019 – 2023",
+    },
     { degree: "MSc in Applied Psychology", school: "USP", period: "2020 – 2021" },
   ],
   skills: [

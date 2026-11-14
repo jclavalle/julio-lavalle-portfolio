@@ -61,7 +61,11 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
       <div className="g-track" ref={track} onScroll={update}>
         {items.map((item) => (
           <article className="pcard" key={item.slug}>
-            <Link href={`/projects/${item.slug}`} className="plink">
+            <Link
+              href={`/projects/${item.slug}`}
+              className="plink"
+              data-umami-event={`home-project-${item.slug}`}
+            >
               <div className="pvis">
                 {item.image ? (
                   <Image

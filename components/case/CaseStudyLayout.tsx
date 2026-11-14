@@ -116,7 +116,11 @@ export default function CaseStudyLayout({
       {next && (
         <nav className="mt-28 border-t border-rule pt-8" aria-label="Next project">
           <p className="mb-2 font-mono text-xs tracking-widest text-muted">NEXT PROJECT</p>
-          <Link href={`/projects/${next.slug}`} className="group inline-block">
+          <Link
+            href={`/projects/${next.slug}`}
+            className="group inline-block"
+            data-umami-event={`case-next-${next.slug}`}
+          >
             <span className="font-display text-2xl font-medium text-paper group-hover:text-accent md:text-3xl">
               {next.frontmatter.title}
             </span>

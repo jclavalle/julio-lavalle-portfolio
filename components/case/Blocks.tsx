@@ -47,6 +47,7 @@ export function Bridge() {
       </span>
       <Link
         href="/projects/conecta-pro"
+        data-umami-event="case-crosslink-conecta-pro"
         className="group block border-t border-accent pt-4 transition-colors hover:border-paper"
       >
         <p className="font-mono text-xs tracking-widest text-accent group-hover:text-paper">

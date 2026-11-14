@@ -82,7 +82,7 @@ export default function Home() {
           globally.
         </p>
         <div className="cta-row">
-          <a className="cta" href="#work">
+          <a className="cta" href="#work" data-umami-event="hero-view-work">
             View selected work
           </a>
         </div>
@@ -130,7 +130,7 @@ export default function Home() {
               <figcaption>
                 AI reinterpretation of an investor pitch at{" "}
                 {HALCYON_URL ? (
-                  <a className="clink" href={HALCYON_URL} target="_blank" rel="noopener noreferrer">
+                  <a className="clink" href={HALCYON_URL} target="_blank" rel="noopener noreferrer" data-umami-event="about-halcyon">
                     Halcyon
                   </a>
                 ) : (

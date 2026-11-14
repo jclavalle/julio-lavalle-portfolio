@@ -25,15 +25,6 @@ export default function CVPage() {
             </p>
           </div>
           <div className="cv-btns">
-            <a
-              className="cta ghost"
-              href={CV.pdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-umami-event="cv-open"
-            >
-              Open full PDF
-            </a>
             <a className="cta solid" href={CV.pdf} download data-umami-event="cv-download">
               Download PDF
             </a>

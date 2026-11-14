@@ -170,8 +170,6 @@
 .home .cv-btns{display:flex; gap:12px; flex-wrap:wrap}
 .home .cta.solid{background:var(--o-deep); color:var(--on-ink)}
 .home .cta.solid:hover,.home .cta.solid:focus-visible{background:var(--o-mid); border-color:var(--o-mid)}
-.home .cta.ghost{border-color:var(--frame)}
-.home .cta.ghost:hover,.home .cta.ghost:focus-visible{border-color:var(--o-deep); background:rgba(95,168,140,.14)}
 .home .cv-card{border:1px solid var(--rule); border-radius:8px; background:var(--ground-2); padding:32px 36px 36px}
 .home .cv-page{padding-block:88px 72px}
 .home .cv-eyebrow{font-family:var(--mono); font-size:13px; color:var(--o-deep); margin:0 0 20px}

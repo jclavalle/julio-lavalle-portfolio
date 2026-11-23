@@ -1,0 +1,53 @@
+---
+title: "Caja Clara for DSPs"
+subtitle: "An AI cash-flow simulator for delivery service partners. It shows how route changes hit weekly margin and daily cash, and an advisor helps compare the fixes."
+track: "professional"
+org: "Consultancy"
+role: "Product lead & builder"
+period: "Oct 2026 – Nov 2026"
+location: "Rio de Janeiro / Remote"
+status: "live"
+order: 0
+cardTag: "Consultancy"
+cardImage: "/caja-clara/card-visual.jpg"
+cardImageAlt: "Caja Clara dashboard showing weekly route contribution, maximum cash shortfall, and a two-week cash forecast."
+stack: ["AI advisor", "Scenario modeling", "Fintech", "OpenAI Responses API", "Vercel"]
+metrics:
+  - label: "Weekly contribution, original → new plan (synthetic)"
+    value: "R$9,000 → R$2,250"
+  - label: "Cash shortfall surfaced (synthetic)"
+    value: "R$3,500 on Nov 11"
+  - label: "Automated checks passing"
+    value: "33"
+links:
+  - label: "View demo"
+    href: "https://caja-clara-iota.vercel.app/"
+---
+
+{/*
+  Review notes (not rendered):
+  - Source: Caja Clara portfolio handoff (release 0.7.3). Keep the private source repo,
+    the internal PRD and the analytics configuration out of public copy.
+  - "View demo" link added at the author's request on 15 Nov 2026. The handoff lists
+    distributed rate limiting and API authentication as still pending on the demo's API.
+*/}
+
+## The problem
+
+A delivery operator can end a two-week period with cash in the bank and still run short before the next collection. When a platform changes route density or duration, the hit to margin and the timing of cash are hard to see together, so the conversation with suppliers or the platform starts too late.
+
+## What I built / owned
+
+I framed the delivery-operator use case, designed the scenario and decision flow, and built and tested a working Spanish-language prototype with AI-assisted development, modeled on a fictional Brazilian delivery business.
+
+**Scenario dashboard.** Two presets, controls for stops and hours per route, stress tests for rate and collection delays, and toggles for equipment and supplier timing. Weekly contribution sits beside a dated two-week cash forecast so profitability before overhead and payment timing are visible at once. Pay stays at R$4 per stop in both presets, isolating the effect of route density and duration.
+
+**Grounded advisor.** In my first walkthrough the advisor mostly repeated the dashboard. I reworked it to compare calculated alternatives, ask whether an option is feasible, and apply an accepted plan directly in the simulator. Its actions are limited to explicit, reversible changes; the server recalculates before the final explanation, and the user can undo or reset at any point.
+
+**Negotiation support.** A brief for supplier or platform conversations that can be copied, downloaded, or exported as a JSON scenario.
+
+## Why it mattered
+
+In the synthetic scenario, moving from 120 stops in eight hours to 90 stops in ten hours cut weekly contribution from R$9,000 to R$2,250 and opened a R$3,500 cash gap on November 11. Negotiating 100 stops per route and deferring a R$2,000 equipment purchase closed the gap entirely. These figures illustrate the model, not measured business results; operator usability and impact remain to be tested.
+
+_Independent prototype with synthetic data, modeled on a fictional Brazilian delivery business._

@@ -10,7 +10,7 @@ type Props = {
   alt: string;
   caption: string;
   /** Distinguishes real (anonymized) captures from illustrations. */
-  kind: "Anonymized screenshot" | "Illustrative reconstruction";
+  kind: "Anonymized screenshot" | "Illustrative reconstruction" | "Prototype screenshot";
   sizes: string;
   className?: string;
 };

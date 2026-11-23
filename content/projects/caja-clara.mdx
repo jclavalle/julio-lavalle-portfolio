@@ -2,23 +2,22 @@
 title: "Caja Clara for DSPs"
 subtitle: "An AI cash-flow simulator for delivery service partners. It shows how route changes hit weekly margin and daily cash, and an advisor helps compare the fixes."
 track: "professional"
-org: "Consultancy"
+org: "Consulting"
 role: "Product lead & builder"
 period: "Oct 2026 – Nov 2026"
-location: "Rio de Janeiro / Remote"
 status: "live"
 order: 0
-cardTag: "Consultancy"
-cardImage: "/caja-clara/card-visual.jpg"
-cardImageAlt: "Caja Clara dashboard showing weekly route contribution, maximum cash shortfall, and a two-week cash forecast."
+cardTag: "Consulting"
+layout: "case"
+heroVisual: "caja-clara"
+cardImage: "/caja-clara/card-illustration.jpg"
+cardImageAlt: "Illustrative dark-mode view of Caja Clara: scenario controls, weekly contribution, maximum cash shortfall, closing cash and a daily cash chart dipping below zero on Nov 11."
+eyebrow: "CAJA CLARA · CONSULTING CASE STUDY"
+pageTitle: "From route changes to cash-flow decisions."
+description: "A delivery operator can end two weeks with cash in the bank and still run short before the next collection. I built Caja Clara so delivery service partners could see that timing, compare what to do about it, and walk into supplier or platform conversations prepared."
+tags: ["Consulting", "AI product", "Scenario modeling", "Fintech"]
 stack: ["AI advisor", "Scenario modeling", "Fintech", "OpenAI Responses API", "Vercel"]
-metrics:
-  - label: "Weekly contribution, original → new plan (synthetic)"
-    value: "R$9,000 → R$2,250"
-  - label: "Cash shortfall surfaced (synthetic)"
-    value: "R$3,500 on Nov 11"
-  - label: "Automated checks passing"
-    value: "33"
+metrics: []
 links:
   - label: "View demo"
     href: "https://caja-clara-iota.vercel.app/"
@@ -26,28 +25,154 @@ links:
 
 {/*
   Review notes (not rendered):
-  - Source: Caja Clara portfolio handoff (release 0.7.3). Keep the private source repo,
-    the internal PRD and the analytics configuration out of public copy.
-  - "View demo" link added at the author's request on 15 Nov 2026. The handoff lists
-    distributed rate limiting and API authentication as still pending on the demo's API.
+  - Real consulting engagement (confirmed by Julio, 23 Nov 2026). The client is not named and
+    the prototype was handed over, so no adoption or business results are available. The
+    scenario (Rota Sul) and all R$ figures are synthetic; keep them labelled that way.
+  - Source: Caja Clara portfolio handoff (release 0.7.3). Keep the private source repo, the
+    internal PRD and the analytics configuration out of public copy.
+  - Screenshots are Julio's own captures of the live demo (Nov 2026). The original-plan and
+    new-plan captures show a small text-selection highlight on "Paradas"; retake to remove it.
+  - The demo's API still lacks distributed rate limiting and authentication (see handoff).
 */}
 
-## The problem
+<div className="mt-14 max-w-2xl border-l border-rule pl-5 text-sm leading-relaxed text-muted md:text-base">
+  A consulting engagement focused on delivery service partners (DSPs): businesses that run delivery routes for a platform and are paid per stop. I framed the problem, designed the decision flow and built the working prototype, which was then handed over to the client. The app is in Spanish; the scenario and every figure below are synthetic.
+</div>
 
-A delivery operator can end a two-week period with cash in the bank and still run short before the next collection. When a platform changes route density or duration, the hit to margin and the timing of cash are hard to see together, so the conversation with suppliers or the platform starts too late.
+## When the route changes, cash runs short before margin shows it
 
-## What I built / owned
+DSPs are paid per stop, but drivers, fuel and suppliers are paid on their own calendar. When the platform changes route density or duration, the operator feels it twice: in weekly margin, and in the days between paying out and getting paid.
 
-I framed the delivery-operator use case, designed the scenario and decision flow, and built and tested a working Spanish-language prototype with AI-assisted development, modeled on a fictional Brazilian delivery business.
+In the modeled case, the platform moves routes from 120 stops in 8 hours to 90 stops in 10 hours at the same R$4 per stop. Weekly contribution falls 75%, and the cash balance goes negative on November 11, before the next collection arrives.
 
-**Scenario dashboard.** Two presets, controls for stops and hours per route, stress tests for rate and collection delays, and toggles for equipment and supplier timing. Weekly contribution sits beside a dated two-week cash forecast so profitability before overhead and payment timing are visible at once. Pay stays at R$4 per stop in both presets, isolating the effect of route density and duration.
+<div className="mt-10 grid gap-8 md:grid-cols-2">
+  <ZoomFigure
+    src="/caja-clara/01-plan-original.webp"
+    w={2000}
+    h={884}
+    alt="Caja Clara on Plan original: cash covered, R$9,000 weekly contribution, R$0 shortfall, R$25,000 closing cash."
+    caption="Plan original: 120 stops in 8 hours. Payments covered, closing at R$25,000."
+    kind="Prototype screenshot"
+    sizes="(max-width: 768px) 92vw, 500px"
+  />
+  <ZoomFigure
+    src="/caja-clara/02-plan-nuevo.png"
+    w={1442}
+    h={637}
+    alt="Caja Clara on Plan nuevo: cash shortfall banner, R$2,250 weekly contribution, R$3,500 maximum shortfall, R$11,500 closing cash."
+    caption="Plan nuevo: 90 stops in 10 hours. Contribution drops to R$2,250 and a R$3,500 gap opens."
+    kind="Prototype screenshot"
+    sizes="(max-width: 768px) 92vw, 500px"
+  />
+</div>
 
-**Grounded advisor.** In my first walkthrough the advisor mostly repeated the dashboard. I reworked it to compare calculated alternatives, ask whether an option is feasible, and apply an accepted plan directly in the simulator. Its actions are limited to explicit, reversible changes; the server recalculates before the final explanation, and the user can undo or reset at any point.
+## Show margin and cash timing in the same view
 
-**Negotiation support.** A brief for supplier or platform conversations that can be copied, downloaded, or exported as a JSON scenario.
+I put weekly contribution beside a dated, day-by-day cash forecast so the operator sees both questions at once: is the route still worth it, and will I make payroll and fuel? Pay stays at R$4 per stop in both plans, so the comparison isolates route density and duration.
 
-## Why it mattered
+<ZoomFigure
+  className="mt-10 max-w-3xl"
+  src="/caja-clara/03-cash-timeline.png"
+  w={1444}
+  h={1010}
+  alt="Stepped daily cash chart comparing Plan original and Plan nuevo, with Plan nuevo falling to -R$3,500 on November 11."
+  caption="Daily closing balance for both plans. Driver payouts and platform collections are marked; the new plan dips to -R$3,500 on Nov 11."
+  kind="Prototype screenshot"
+  sizes="(max-width: 1024px) 92vw, 768px"
+/>
 
-In the synthetic scenario, moving from 120 stops in eight hours to 90 stops in ten hours cut weekly contribution from R$9,000 to R$2,250 and opened a R$3,500 cash gap on November 11. Negotiating 100 stops per route and deferring a R$2,000 equipment purchase closed the gap entirely. These figures illustrate the model, not measured business results; operator usability and impact remain to be tested.
+<div className="mt-10">
+  <StepRow
+    items={[
+      { k: "CHANGE THE ROUTE", d: "Adjust stops and hours, or stress the rate and collection delays." },
+      { k: "SEE THE TIMING", d: "Weekly contribution, the largest shortfall and its date, and closing cash, recalculated instantly." },
+      { k: "TRY A LEVER", d: "Defer equipment or move a supplier date and watch the gap change." },
+    ]}
+  />
+</div>
 
-_Independent prototype with synthetic data, modeled on a fictional Brazilian delivery business._
+## An advisor that compares options, not one that repeats the dashboard
+
+In my first walkthrough, the AI advisor mostly read the dashboard back. I reworked it so it gets calculated alternatives from the model, asks whether an option is feasible, and only then proposes a plan. If the operator accepts, the plan is applied to the simulation and the server recalculates before explaining the result.
+
+<ZoomFigure
+  className="mt-10 max-w-2xl"
+  src="/caja-clara/04-advisor-plan.png"
+  w={1412}
+  h={1256}
+  alt="Advisor conversation: it asks whether 100 stops per route could be negotiated, then proposes 100 stops plus deferring equipment."
+  caption="Armar un plan: the advisor checks feasibility first, then offers the combined alternative of 100 stops plus deferring R$2,000 of equipment."
+  kind="Prototype screenshot"
+  sizes="(max-width: 1024px) 92vw, 672px"
+/>
+
+<div className="mt-10">
+  <Flow
+    steps={[
+      "Ask what is feasible",
+      "Compare calculated alternatives",
+      "Propose one plan",
+      "Apply on acceptance",
+      "Recalculate and explain",
+      "Undo at any time",
+    ]}
+  />
+</div>
+
+<ZoomFigure
+  className="mt-10"
+  src="/caja-clara/05-plan-applied.webp"
+  w={2000}
+  h={887}
+  alt="Dashboard after accepting the plan: 100 stops, equipment deferred, R$4,250 weekly contribution, R$0 shortfall, R$17,500 closing cash, with an undo link."
+  caption="Plan applied: no negative days, R$17,500 closing cash. The advisor states exactly what changed and offers Deshacer (undo)."
+  kind="Prototype screenshot"
+  sizes="(max-width: 1024px) 92vw, 1024px"
+/>
+
+<Note>The advisor can only make explicit, reversible changes inside the simulation. It doesn't move money or send messages, and a manual change marks earlier advice as stale.</Note>
+
+## Walk into the platform conversation prepared
+
+The last step is the conversation that actually fixes the problem. The advisor turns the scenario into a negotiation brief: which route change to ask for, what it does to cash, and the specific question on density or duration. The brief can be copied, downloaded or exported as a scenario file.
+
+<ZoomFigure
+  className="mt-10 max-w-2xl"
+  src="/caja-clara/06-advisor-negotiation.png"
+  w={1424}
+  h={1252}
+  alt="Advisor preparing a negotiation with the platform, comparing 110 stops per route against 100 stops in 8 hours."
+  caption="Preparar negociación: the advisor compares the asks worth taking to the platform and offers to draft the message."
+  kind="Prototype screenshot"
+  sizes="(max-width: 1024px) 92vw, 672px"
+/>
+
+## What the model showed
+
+<div className="mt-8">
+  <Outcomes
+    items={[
+      { value: "-75%", label: "Weekly contribution", note: "R$9,000 → R$2,250 under the new route plan." },
+      { value: "R$3,500", label: "Shortfall surfaced", note: "On Nov 11, before the next collection." },
+      { value: "R$0", label: "Gap after the plan", note: "100 stops plus deferring equipment." },
+      { value: "33", label: "Automated checks", note: "Economics, advisor actions and analytics." },
+    ]}
+  />
+</div>
+
+<Note>Figures come from the synthetic scenario and illustrate the model, not client results. The prototype was handed over to the client, so usage and business impact weren't measured.</Note>
+
+## What I owned
+
+<div className="mt-8">
+  <Owned
+    items={[
+      { k: "PROBLEM FRAMING", d: "Framed the delivery-operator use case around cash timing, not just route profitability." },
+      { k: "DECISION FLOW", d: "Designed the scenario controls, the plain-language status and cards, and the path from diagnosis to a plan." },
+      { k: "GROUNDED ADVISOR", d: "Reworked the AI advisor to compare calculated alternatives and apply only explicit, reversible changes." },
+      { k: "WORKING PROTOTYPE", d: "Built and tested it with AI-assisted development, then handed it over to the client." },
+    ]}
+  />
+</div>
+
+<Principles items={["An operator doesn't need another dashboard. They need to know which day cash runs out, and what to ask for before it does."]} />

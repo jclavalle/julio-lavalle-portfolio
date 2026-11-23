@@ -1,0 +1,174 @@
+<!doctype html>
+<!-- Source for public/caja-clara/card-illustration.jpg (homepage card).
+     Render: see assets/caja-clara-card/README.md -->
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1672px; height: 941px; overflow: hidden; }
+  body {
+    background: radial-gradient(1200px 700px at 30% 20%, #19202c 0%, #12161f 60%, #10131b 100%);
+    font-family: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    color: #e9edf3;
+    position: relative;
+  }
+  .frame {
+    position: absolute; left: 56px; top: 44px; width: 1560px; height: 820px;
+    background: #171d29; border: 1px solid rgba(255,255,255,.09); border-radius: 22px;
+    box-shadow: 0 40px 80px rgba(0,0,0,.45); overflow: hidden;
+  }
+  header {
+    height: 92px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 44px; background: #11151e; border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .logo { font-size: 40px; letter-spacing: -.02em; display: flex; align-items: baseline; gap: 10px; }
+  .logo b { font-weight: 800; }
+  .logo span { font-weight: 400; }
+  .logo svg { width: 30px; height: 30px; margin-left: 6px; transform: translateY(2px); }
+  .meta { font-size: 18px; color: #8d97a8; }
+  .body { display: grid; grid-template-columns: 360px 1fr; gap: 28px; padding: 32px 40px; }
+
+  .panel { background: #1d2433; border: 1px solid rgba(255,255,255,.07); border-radius: 16px; }
+  aside { padding: 26px 26px; height: 664px; }
+  .h { font-size: 21px; font-weight: 700; margin-bottom: 18px; }
+  .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 6px; border-radius: 12px; background: #151a25; border: 1px solid rgba(255,255,255,.07); margin-bottom: 30px; }
+  .seg div { text-align: center; font-size: 17px; padding: 12px 0; border-radius: 8px; color: #8d97a8; }
+  .seg .on { background: #f29a1f; color: #1a1408; font-weight: 700; }
+  .eyebrow { font-size: 13px; letter-spacing: .12em; color: #7f8a9c; font-weight: 600; margin-bottom: 18px; }
+  .slider { margin-bottom: 26px; }
+  .slider .row { display: flex; justify-content: space-between; font-size: 17px; margin-bottom: 12px; }
+  .slider .row b { font-weight: 700; }
+  .track { position: relative; height: 7px; border-radius: 4px; background: #343d4f; }
+  .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; background: #e8862a; }
+  .knob { position: absolute; top: 50%; width: 20px; height: 20px; border-radius: 50%; background: #f29a1f; transform: translate(-50%, -50%); box-shadow: 0 0 0 5px rgba(242,154,31,.18); }
+  .tick { position: absolute; top: -6px; width: 2px; height: 19px; background: #8d97a8; }
+  .sub { display: flex; justify-content: space-between; font-size: 14px; color: #7f8a9c; margin-top: 10px; }
+  .sub b { color: #c9d0db; font-weight: 600; }
+  hr { border: 0; border-top: 1px solid rgba(255,255,255,.08); margin: 8px 0 24px; }
+  .check { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+  .box { width: 22px; height: 22px; border-radius: 5px; border: 2px solid #5b6578; flex: none; margin-top: 2px; }
+  .lines .t { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .bar { height: 9px; border-radius: 5px; background: #2e3647; }
+
+  main { display: flex; flex-direction: column; gap: 20px; }
+  .status { display: flex; align-items: center; gap: 18px; padding: 16px 22px; border-radius: 14px; background: rgba(214,69,69,.10); border: 1px solid rgba(214,69,69,.28); }
+  .pill { background: #c0392b; color: #fff; font-weight: 700; font-size: 16px; padding: 7px 16px; border-radius: 999px; }
+  .status .bar { background: rgba(255,255,255,.14); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { padding: 22px 24px; border-radius: 16px; background: #222b3c; border: 1px solid rgba(255,255,255,.07); }
+  .card .top { display: flex; align-items: center; gap: 12px; font-size: 16px; color: #c9d0db; margin-bottom: 16px; }
+  .ic { width: 34px; height: 34px; border-radius: 50%; background: #f2a531; display: grid; place-items: center; flex: none; }
+  .ic svg { width: 18px; height: 18px; }
+  .val { font-size: 44px; font-weight: 500; color: #f5a83a; letter-spacing: -.01em; }
+  .val.neg { color: #ff7a6b; }
+  .card .bar { margin-top: 14px; width: 70%; }
+  .chart { padding: 22px 26px 14px; }
+  .chart .h { margin-bottom: 4px; }
+  .chart .s { font-size: 15px; color: #7f8a9c; }
+  .advisor { display: flex; align-items: center; gap: 16px; padding: 16px 22px; }
+  .advisor .name { font-size: 18px; font-weight: 700; white-space: nowrap; }
+  .advisor .name em { color: #f5a83a; font-style: normal; margin-right: 8px; }
+  .chip { font-size: 15px; color: #c9d0db; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 8px 16px; white-space: nowrap; }
+  .caption { position: absolute; left: 58px; bottom: 30px; font-size: 14px; letter-spacing: .16em; color: #6f7888; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <header>
+      <div class="logo">
+        <b>caja</b><span>clara</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#f29a1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M9 6h9v9"/></svg>
+      </div>
+      <div class="meta">Rota Sul · 2–15 nov</div>
+    </header>
+
+    <div class="body">
+      <aside class="panel">
+        <div class="h">Escenario</div>
+        <div class="seg"><div>Plan original</div><div class="on">Plan nuevo</div></div>
+        <div class="eyebrow">QUÉ CAMBIÓ</div>
+        <div class="slider">
+          <div class="row"><span>Paradas por ruta</span><b>90</b></div>
+          <div class="track"><div class="fill" style="width:40%"></div><div class="tick" style="left:70%"></div><div class="knob" style="left:40%"></div></div>
+          <div class="sub"><span>Plan: 120</span><b>−30 vs plan</b></div>
+        </div>
+        <div class="slider">
+          <div class="row"><span>Horas por ruta</span><b>10 h</b></div>
+          <div class="track"><div class="fill" style="width:66%"></div><div class="tick" style="left:33%"></div><div class="knob" style="left:66%"></div></div>
+          <div class="sub"><span>Plan: 8 h</span><b>+2 h vs plan</b></div>
+        </div>
+        <hr />
+        <div class="eyebrow">QUÉ PUEDES HACER</div>
+        <div class="check"><div class="box"></div><div class="lines"><div class="t">Posponer equipos</div><div class="bar" style="width:120px"></div></div></div>
+        <div class="check"><div class="box"></div><div class="lines"><div class="t">Mover fecha del proveedor</div><div class="bar" style="width:150px"></div></div></div>
+        <hr style="margin-top:22px" />
+        <div class="lines"><div class="t">&#9656; Prueba de estrés</div><div class="bar" style="width:210px;margin-top:14px"></div><div class="bar" style="width:170px;margin-top:10px"></div></div>
+      </aside>
+
+      <main>
+        <div class="status"><span class="pill">Falta caja</span><div class="bar" style="width:520px"></div></div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1408" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg></span>Lo que dejan las rutas</div>
+            <div class="val">R$ 2.250</div><div class="bar"></div>
+          </div>
+          <div class="card">
+            <div class="top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1408" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span>Lo máximo que te faltará</div>
+            <div class="val">R$ 3.500</div><div class="bar"></div>
+          </div>
+          <div class="card">
+            <div class="top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1408" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12.5h2"/><path d="M6 6V5h11v1"/></svg></span>Caja el 15 nov</div>
+            <div class="val">R$ 11.500</div><div class="bar"></div>
+          </div>
+        </div>
+
+        <div class="panel chart">
+          <div class="h">Tu caja, día a día</div>
+          <div class="s">Saldo al cierre de cada día</div>
+          <svg id="c" width="1060" height="232"></svg>
+        </div>
+
+        <div class="panel advisor">
+          <div class="name"><em>✦</em>Tu asesor Caja Clara</div>
+          <span class="chip">Armar un plan</span>
+          <span class="chip">Preparar negociación</span>
+          <div class="bar" style="flex:1"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="caption">ILLUSTRATIVE · SYNTHETIC DATA</div>
+
+<script>
+  // Daily closing balances (R$) for 2–15 Nov from the prototype's synthetic scenario.
+  const nuevo    = [18000, 6000, 2200, 200, 16200, 12200, 12200, 12200, 200, -3500, -3500, 14500, 11500, 11500];
+  const original = [18000, 6000, 3000, 1000, 23000, 19000, 19000, 19000, 7000, 4000, 4000, 28000, 25000, 25000];
+  const W = 1060, H = 232, L = 70, R = 20, T = 14, B = 34;
+  const x = i => L + (i * (W - L - R)) / nuevo.length;
+  const y = v => T + ((30000 - v) * (H - T - B)) / 40000;
+  const path = d => {
+    let s = `M${x(0)} ${y(d[0])}`;
+    d.forEach((v, i) => { if (i) s += ` H${x(i)} V${y(v)}`; });
+    return s + ` H${x(d.length)}`;
+  };
+  const svg = document.getElementById("c");
+  const z = y(0), bottom = y(-10000);
+  let g = "";
+  [30000, 20000, 10000, 0, -10000].forEach(v => {
+    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 0 ? "#c0392b" : "rgba(255,255,255,.06)"}" stroke-width="${v === 0 ? 1.5 : 1}"/>`;
+    g += `<text x="${L - 12}" y="${y(v) + 5}" text-anchor="end" font-size="13" fill="${v === 0 ? "#ff7a6b" : "#6f7888"}">${v === 0 ? "R$ 0" : (v > 0 ? "" : "−") + Math.abs(v / 1000) + "k"}</text>`;
+  });
+  g += `<rect x="${L}" y="${z}" width="${W - L - R}" height="${bottom - z}" fill="rgba(214,69,69,.10)"/>`;
+  g += `<path d="${path(original)}" fill="none" stroke="#6f7888" stroke-width="2" stroke-dasharray="7 6"/>`;
+  g += `<path d="${path(nuevo)}" fill="none" stroke="#f29a1f" stroke-width="3.2" stroke-linejoin="round"/>`;
+  g += `<circle cx="${x(9)}" cy="${y(-3500)}" r="6" fill="#ff7a6b"/>`;
+  g += `<text x="${x(9) + 12}" y="${y(-3500) + 26}" font-size="15" font-weight="700" fill="#ff7a6b">11 nov: −R$ 3.500</text>`;
+  ["2 nov", "4 nov", "6 nov", "8 nov", "10 nov", "12 nov", "14 nov"].forEach((d, k) => {
+    g += `<text x="${x(k * 2)}" y="${H - 8}" text-anchor="middle" font-size="13" fill="#6f7888">${d}</text>`;
+  });
+  svg.innerHTML = g;
+</script>
+</body>
+</html>

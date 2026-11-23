@@ -4,6 +4,7 @@ import type { Project } from "@/lib/projects";
 import { barlow, saira } from "@/app/fonts";
 import HeroVisual from "./HeroVisual";
 import ConectaHeroPhone from "./ConectaHeroPhone";
+import CajaClaraHero from "./CajaClaraHero";
 import { E2EPipeline } from "./Mockups";
 import ZoomFigure from "./ZoomFigure";
 import { Callout, CladeHeroFlow, Flow, Principles } from "./CladeBlocks";
@@ -57,7 +58,7 @@ export default function CaseStudyLayout({
   next: Project | null;
 }) {
   const { frontmatter: f, content } = project;
-  const landscape = f.heroVisual === "clade-flow";
+  const landscape = f.heroVisual === "clade-flow" || f.heroVisual === "caja-clara";
 
   return (
     <main className={`${saira.variable} ${barlow.variable} mx-auto max-w-5xl px-6 py-16 font-body md:py-24`}>
@@ -89,6 +90,23 @@ export default function CaseStudyLayout({
             {f.period}
             {f.location ? ` · ${f.location}` : ""}
           </p>
+          {f.links && f.links.length > 0 && (
+            <p className="mt-6 flex flex-wrap gap-6 font-mono text-sm">
+              {f.links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-umami-event="project-link"
+                  data-umami-event-label={link.label}
+                  className="text-accent hover:underline"
+                >
+                  {link.label} &rarr;
+                </a>
+              ))}
+            </p>
+          )}
         </div>
         {f.heroVisual && (
           <div
@@ -100,6 +118,8 @@ export default function CaseStudyLayout({
           >
             {f.heroVisual === "clade-flow" ? (
               <CladeHeroFlow />
+            ) : f.heroVisual === "caja-clara" ? (
+              <CajaClaraHero />
             ) : f.heroVisual === "conecta-phone" ? (
               <ConectaHeroPhone />
             ) : (
